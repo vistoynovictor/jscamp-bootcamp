@@ -1,1 +1,216 @@
-<!-- Aquí el contenido de tu página empleos.html -->
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>DEVJOBS - Empleos</title>
+        <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en Devjobs.">
+        <link rel="stylesheet" href="./styles.css">
+        <!-- <script src="main.js" type="module"></script> -->
+    </head>
+
+    <body>
+        <header class="site-header">
+
+            <a href="index.html">
+                <h2>
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    DevJobs
+                </h2>
+            </a>
+
+            <nav>
+                <a href="./buscar.hmtl">Buscar</a>
+                <a href="./empleos.html">Empleos</a>
+                <a href="./empresas.html">Empresas</a>
+                <a href="./salarios.html">Salarios</a>
+            </nav>
+
+            <div>
+                <button class="btn-std">Subir CV</button>
+                <img class="header-avatar" src="avatar.jpg"/>
+            </div>
+        </header>
+
+        <main>
+            <section class="upper-employment">
+                <h1>Encuentra tu próximo trabajo</h1>
+                <p>Explora miles de oportunidades en el sector tecnológico.</p>
+
+                <form role="search" class="employment-search">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="22"  height="22"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                                        
+                    <input type="text" placeholder="Buscar empleo por titulo, habilidad o empresa"/>
+                        
+                </form>
+                    
+                <article class="filter-bar">
+                    <select id="filter-tech">
+
+                        <button>
+                            <selectedcontent></selectedcontent>
+                        </button>
+                        <option>Tecnologías</option>
+                        <option>HTML</option>
+                        <option>Node.js</option>
+                        <option>CSS</option>
+                        <option>JavaScript</option>
+                        <option>React</option>
+                        <option>Python</option>
+                        <option>R</option>
+                        <option>C / C++</option>
+                        <option>SQL</option>
+                        <option>AWS</option>
+                        <option>Azure</option>
+                        <option>GCP</option>
+                        <option>Swift</option>
+                        <option>Kotlin</option>
+
+
+                        
+                    </select>
+                    
+                    <select>
+
+                        <button>
+                            <selectedcontent></selectedcontent>
+                        </button>
+                        <option>Tipo de Contrato</option>
+                        <option>Indefinido</option>
+                        <option>Duración Determinada</option>
+                        <option>Formativo</option>
+                        <option>Otros...</option>
+                    </select>
+                    
+                    <select id="filter-location">
+                        <button>
+                            <selectedcontent></selectedcontent>
+                        </button>
+                        <option>Ubicación</option>
+                        <option>Ciudad de México</option>
+                        <option>Guadalajara</option>
+                        <option>Madrid</option>
+                        <option>Remoto</option>
+                    </select>
+                    
+                    <select>
+                        <button>
+                            <selectedcontent></selectedcontent>
+                        </button>
+                        <option>Nivel de Experiencia</option>
+                        <option>Aprentice</option>
+                        <option>Junior</option>
+                        <option>Senior</option>
+                    </select>
+
+                </article>
+            </section>
+
+            <section class="job-list-component">
+
+                <h2>Resultados de búsqueda</h2>
+
+                
+                <section>
+                    <article class="job-list-card"> 
+
+                        <a href="tech-solutions-ofertas-001.html">
+                            <header>
+                                <h3>Ingeniero de Sofware</h3>
+                                <small>
+                                    <span class="company-name">Tech Solutions Inc</span> |
+                                    <span class="company-location">Remoto</span>
+                                </small>
+                            </header>
+
+                            <p>Buscamos un ingeniero de software con esperiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
+                        </a>
+
+                        <button class="btn-std">Aplicar</button>
+
+                    </article>
+
+                    <article class="job-list-card">
+
+                        <a href="data-driven-ofertas-001.hmtl">
+                            <header>
+                                <h3>Analista de datos</h3>
+                                <small>
+                                    <span class="company-name">Data Driven Co.</span> |
+                                    <span class="company-location">Ciudad de México</span>
+                                </small>
+                            </header>
+
+                            <p>Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimientos en SQL, Python y R.</p>
+                        </a>
+
+                        <button class="btn-std">Aplicar</button>
+
+                    </article>
+
+                    <article class="job-list-card">
+
+                        <a href="mobile-apps-ofertas-001.hmtl">
+                            <header>
+                                <h3>Desarrollador de Aplicaciones Móviles</h3>
+                                <small>
+                                    <span class="company-name">Mobile Apps Ltd.</span> |
+                                    <span class="company-location">Guadalajara</span>
+                                </small>
+                            </header>
+
+                            <p>Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
+                        </a>
+
+                        <button class="btn-std">Aplicar</button>
+
+                    </article>
+
+                    <article class="job-list-card">
+
+                        <a href="cloud-services-ofertas-001.hmtl">
+                            <header>
+                                <h3>Ingeniero de DevOps</h3>
+                                <small>
+                                    <span class="company-name">Cloud Services SA</span> |
+                                    <span class="company-location">Remoto</span>
+                                </small>
+                            </header>
+
+                            <p>Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.</p>
+                        </a>
+
+                        <button class="btn-std">Aplicar</button>
+
+                    </article>
+                </section>
+
+                <nav class="pg-num">
+    
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+                    </a>
+                    <a class="is-active" href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    </a>
+    
+                </nav>
+
+            </section>
+
+            
+        </main>
+
+        <footer class="site-footer">
+            <small>&copy; 2025 DEBJOBS. Todos los derechos reservados</small>
+        </footer>
+    </body>
+</html>

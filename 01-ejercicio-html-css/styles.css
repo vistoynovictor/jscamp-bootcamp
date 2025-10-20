@@ -1,1 +1,596 @@
-/* Aquí el contenido de tu archivo styles.css */
+:root {
+    --color-primary: #1173d4;
+    --color-primary-dark: #0a3d66;
+    --color-primary-hover: #0d5ba8;
+    --color-primary-light: #09f;
+    --color-background: #06182a;
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
+    --color-btn-link: #475971;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-card-bg: #1e293b;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+    --color-input-bg: #1e293b;
+    --color-svg-bg: rgb(0 153 255 / .3);
+}
+
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Inter Variable',system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.5;
+    text-align: center;
+    
+    form{
+        background: var(--color-input-bg);
+        width: 100%;
+        border-radius:10px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        gap: 16px;
+        transition: 0.2s ease, width 0.4s ease-out;
+        opacity: 0.8;
+        
+        &:hover, &:focus-within{
+            opacity: 1;
+            gap: 10px;
+        }
+        
+        input[type="text"]{
+            flex: 1 1 0;
+            background: none;
+            border: none;
+            color: var(--color-text-primary);
+            outline: none;
+            font-size: 1em;
+            flex: 1 1 0;
+            
+            &::placeholder{
+                color: var(--color-text-muted);
+            }
+        }
+        
+        button{
+            padding: 13px 15px;
+            color: var(--color-text-primary);
+            background: var(--color-primary);
+            border: none;
+            border-radius: 0.5em;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        svg{
+            margin-left: 10px
+        }
+        
+        
+    }    
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 100%;
+
+    & > .upper-employment, & > .job-list-component{
+        padding: 1rem 4rem 0 4rem;
+    }
+}
+
+/* Componentes */
+.site-header {
+    background: var(--color-background);
+    width: 100%;
+    display: flex;
+    flex-flow: row reverse;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+
+    a{
+        text-decoration: none;  
+        h2{
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.25rem;
+            color: var(--color-text-primary); 
+    
+            svg{
+                width: 2rem;
+                color: var(--color-primary);
+            }
+        }
+    }
+
+    nav {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+            color: var(--color-text-primary);
+            transition: color 0.2s;
+
+            &:hover{
+                color: var(--color-primary-light);
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 50%;
+    }
+
+    form{
+        max-width: 30%;
+    }
+}
+
+.btn-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--color-btn-link);
+    border: none; 
+    border-radius: 8px;
+    padding: 0.5em 0.9rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    
+    a {
+        text-decoration: none;
+        color: var(--color-text-primary);   
+    }
+
+    &:hover, &:focus {
+        background: var(--color-primary-dark);
+
+        & a, & a {
+            color: var(--color-primary-light);
+        }
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.btn-std{
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: var(--color-btn-link);
+    border: none; 
+    border-radius: 8px;
+    padding: 0.5em 0.9rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-text-primary);   
+
+    &:hover{
+        background-color: var(--color-primary-dark);
+        color: var(--color-primary-light);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+& .btn-applied{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.header-avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.img-hero{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;  
+        z-index: -1;
+        mask-image: linear-gradient(to bottom, rgba(16, 25, 34, 1) 5%, rgba(16, 25, 34, 0) 90%);
+    }
+
+    h1{
+        font-size: 4rem;
+        font-weight: 1000;
+        text-justify: balanced;
+        line-height: 1.2;
+        width: 80%
+    }
+
+    h1 + p{
+        font-size: 1.3rem;
+        margin: 0.5lh 0 1lh 0;
+    }
+}
+
+
+    
+.landpg-search{
+    width: 40%;
+}
+
+.employment-search{
+    border: 1px solid var(--color-border);
+}
+
+.landpg-cards{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+    text-justify: balance;
+    width: 100%;
+
+    header h2{
+        font-size: 2rem;
+    }
+
+    header p{
+        margin: 1rem 0;
+    }
+
+    footer{
+        display: grid;
+        padding: 30px;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+        
+
+        article{
+            background: var(--color-card-bg);
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 30px;
+            border-radius: 15px;
+
+            svg{
+                background: var(--color-svg-bg);
+                width: 64px;
+                height: 64px;
+                padding: 16px;
+                border-radius: 50%;
+                color: var(--color-primary);
+            }
+        }
+    }
+}
+
+.upper-employment{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    h1{
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.5lh;
+
+        & + p{
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.filter-bar{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 100%;
+
+    select{
+        appearance: base-select;
+        background-color: var(--color-input-bg);
+        border: none;
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        color: var(--color-text-primary);
+        border-radius: 8px;
+
+        &::picker(select){
+            appearance: base-select;
+            background: rgba(40, 65, 112, 0.7);
+            backdrop-filter: blur(3px);
+            border-radius: 10px;
+            
+        }
+
+        &::picker-icon{
+            margin-left: 4px;
+            transition: 150ms ease-in;
+        }
+
+        &:open::picker-icon{
+            rotate: 180deg;
+        }
+
+        option{
+            color: var(--color-text-primary);
+            background-color: transparent;
+            padding: 8px 20px 8px 8px;
+            
+            &:hover{
+                background-color: rgba(2, 233, 250, 0.4);
+                cursor: pointer;
+                
+            }
+        }    
+    }
+}
+
+.job-list-component{
+    text-align: left;
+    width: 100%;
+
+    h2{
+      font-size: 1.5rem; 
+      margin-bottom: 1rem;
+    }
+
+    & > section{
+        border: 1px solid var(--color-border);
+        border-radius: 15px;
+
+            article:not(article:last-child){
+                border-bottom: 1px solid var(--color-border);
+            }
+    }
+}
+
+.job-list-card{
+    padding: 1.2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    a{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.5rem;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: var(--color-text-primary);
+        
+        p{
+            font-size: 0.8rem;
+        }
+        
+        small{
+            color: var(--color-text-muted);
+        }
+    }    
+    
+    button{
+        background-color: var(--color-primary);
+    }
+}
+
+.pg-num{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block: 20px;
+    gap: 0.5rem;
+
+    a{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-text-muted);
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        transition: 0.2s;
+
+        &:hover, &:focus{
+            background-color: var(--color-text-primary);
+            cursor: pointer;
+        }
+
+        &:active{
+            transform: scale(0.9);
+        }
+
+        &.is-active{
+            background-color: var(--color-primary-light);
+            color: var(--color-text-primary);
+            pointer-events: none;
+        }
+    }   
+    
+    svg{
+        height: 0.9rem;
+    }
+}
+
+/* .empleos-route{
+    align-self: flex-start;
+    padding: 2rem 8%;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+} */
+
+/* .job-offer-card{
+    text-align: left;
+    padding: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+
+    & > header{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        
+        & > section{
+
+            h1{
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+            
+            section{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                gap: 0.3rem;
+                font-weight: 290;
+
+                svg{
+                    width: 1.3rem;
+                }
+            }
+        }
+    }
+    
+    & > article{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2.5rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 2.5rem;
+
+        h2{
+            font-size: 1.9rem;
+            font-weight: 600;
+            line-height: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li{
+            font-size: 1.1rem;
+            font-weight: 290;
+            text-wrap: balance;
+            line-height: 1.7;
+        }
+
+        ul{
+            list-style-type: none;
+
+            li{
+                display:flex;
+                flex-flow: row nowrap;
+                align-items: flex-start;
+                gap: 1rem;
+
+                &:not(:last-child){
+                    margin-bottom: 1rem;
+                }
+
+                svg{
+                    color: var(--color-primary-light);
+                    margin-top: 0.1rem;
+                }
+            }
+        }
+    }
+
+    button{
+        background: var(--color-primary);
+    }
+}
+
+footer{
+    padding-block: 10px;
+    border-top: 1px solid var(--color-border);
+    width: 100%;
+    color: var(--color-text-muted);
+} */
+
+.hidden{
+    display: none;
+}
+
+@media (max-width: 1000px){
+    .img-hero{
+        height: 800px;
+    }
+}
+
+@media (max-width: 12810px){
+    .landpg-search{
+        width: 60%;
+    }
+}
