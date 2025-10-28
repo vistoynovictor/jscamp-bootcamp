@@ -21,6 +21,10 @@ Cumpliste con todos los puntos de una manera super buena y organizada
 
 Ya que el ejercicio estaba muy bien, quisimos hacer unas mejoras a nivel de semántica y accesibilidad. Sobre la semántica creemos que si es importante de cara al resto de ejercicios y cómo estructures las páginas en un futuro. Con respecto a la accesibilidad creemos que si es un Plus que quisimos dar ya que vimos un muy buen nivel 🙏
 
+PD: Siempre es bueno estilar primero en mobile first, y posteriormente en desktop. En mobile el header hacía que el contenido se rompiese, así que agregue flex-wrap: wrap; en algunas clases para que se ajuste correctamente. Luego esto se puede mejorar con un botón dropdown. Se puede hacer solo con HTML y CSS pero normalmente requiere un poco de JavaScript para que funcione. Así que dejaremos esa tarea para más adelante si?
+
+Te felicito por el trabajo que hiciste!!
+
 ### Tips:
 
 Puedes ver aquí un botón dentro del inspector de código que te permite ver como se ve el documento desde el punto de vista de un lector de pantalla, algo que comentamos mucho en el código.
