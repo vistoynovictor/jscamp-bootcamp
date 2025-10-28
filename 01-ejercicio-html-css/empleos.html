@@ -1,216 +1,245 @@
 <!DOCTYPE html>
 
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>DEVJOBS - Empleos</title>
-        <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en Devjobs.">
-        <link rel="stylesheet" href="./styles.css">
-        <!-- <script src="main.js" type="module"></script> -->
-    </head>
 
-    <body>
-        <header class="site-header">
+<head>
+    <meta charset="UTF-8">
+    <title>DEVJOBS - Empleos</title>
+    <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en Devjobs.">
+    <link rel="stylesheet" href="./styles.css">
+    <!-- <script src="main.js" type="module"></script> -->
+</head>
 
+<body>
+    <header class="site-header">
+
+        <!-- Una etiqueta anchor nunca puede envolver un título, en cambio, el título si puede envolver un anchor  -->
+        <h2>
             <a href="index.html">
-                <h2>
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <polyline points="16 18 22 12 16 6"></polyline>
-                        <polyline points="8 6 2 12 8 18"></polyline>
-                    </svg>
-                    DevJobs
-                </h2>
+                <!-- aria-hidden="true" oculta el SVG de lectores de pantalla porque es decorativo, el texto "DevJobs" ya comunica el propósito del enlace -->
+                <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                DevJobs
             </a>
+        </h2>
 
-            <nav>
-                <a href="./buscar.hmtl">Buscar</a>
-                <a href="./empleos.html">Empleos</a>
-                <a href="./empresas.html">Empresas</a>
-                <a href="./salarios.html">Salarios</a>
-            </nav>
+        <nav>
+            <a href="./buscar.hmtl">Buscar</a>
+            <a href="./empleos.html">Empleos</a>
+            <a href="./empresas.html">Empresas</a>
+            <a href="./salarios.html">Salarios</a>
+        </nav>
 
-            <div>
-                <button class="btn-std">Subir CV</button>
-                <img class="header-avatar" src="avatar.jpg"/>
-            </div>
-        </header>
+        <div>
+            <button class="btn-std">Subir CV</button>
+            <img class="header-avatar" src="avatar.jpg" />
+        </div>
+    </header>
 
-        <main>
-            <section class="upper-employment">
-                <h1>Encuentra tu próximo trabajo</h1>
-                <p>Explora miles de oportunidades en el sector tecnológico.</p>
+    <main>
+        <section class="upper-employment">
+            <h1>Encuentra tu próximo trabajo</h1>
+            <p>Explora miles de oportunidades en el sector tecnológico.</p>
 
-                <form role="search" class="employment-search">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="22"  height="22"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-                                        
-                    <input type="text" placeholder="Buscar empleo por titulo, habilidad o empresa"/>
-                        
-                </form>
-                    
-                <article class="filter-bar">
-                    <select id="filter-tech">
+            <!-- Englobamos los select en el form porque, aunque no son inputs, son parte del formulario de búsqueda. Lo que se seleccione va a formar parte de la búsqueda -->
+            <form role="search" class="employment-search">
+                <div class="employment-search-bar">
+                    <!-- Agregamos un aria-hidden="true" para que el SVG no sea leído por lectores de pantalla, es decir, es un elemento decorativo -->
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                        <path d="M21 21l-6 -6" />
+                    </svg>
 
+                    <input type="text" name="search" placeholder="Buscar empleo por titulo, habilidad o empresa" />
+                </div>
+
+                <!-- Un article se usa para elementos que, si lo sacamos de ahí y lo colocamos en otro sitio, tiene sentido por si mismo. Por ejemplo: Si tenemos un post de blog, éste tiene título, descripción y un link a la página, esto se entiende por sí mismo. Un filtro de empleos, por otro lado, no tiene sentido por si mismo, sino que su sentido es el propio formulario de empleos. Hagamos un ejercicio:
+                 Imaginemos que tenemos los `select` del filtro de empleos en una página vacía, sin ningún contenido que lo acompañe... sabremos a qué está relacionado? O que hace? O cual es su fin?
+                 En cambio, un post si lo podemos entender por sí mismo, sin necesidad de su contexto. -->
+                <div class="filter-bar">
+                    <!-- El atributo `name` en los select es necesario para que el formulario pueda enviar los datos al servidor. El `value` en cada option es el valor que se enviará cuando se seleccione esa opción -->
+                    <select id="filter-tech" name="filter-tech">
                         <button>
                             <selectedcontent></selectedcontent>
                         </button>
-                        <option>Tecnologías</option>
-                        <option>HTML</option>
-                        <option>Node.js</option>
-                        <option>CSS</option>
-                        <option>JavaScript</option>
-                        <option>React</option>
-                        <option>Python</option>
-                        <option>R</option>
-                        <option>C / C++</option>
-                        <option>SQL</option>
-                        <option>AWS</option>
-                        <option>Azure</option>
-                        <option>GCP</option>
-                        <option>Swift</option>
-                        <option>Kotlin</option>
-
-
-                        
+                        <option value="">Tecnologías</option>
+                        <option value="html">HTML</option>
+                        <option value="node.js">Node.js</option>
+                        <option value="css">CSS</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="react">React</option>
+                        <option value="python">Python</option>
+                        <option value="r">R</option>
+                        <option value="c / c++">C / C++</option>
+                        <option value="sql">SQL</option>
+                        <option value="aws">AWS</option>
+                        <option value="azure">Azure</option>
+                        <option value="gcp">GCP</option>
+                        <option value="swift">Swift</option>
+                        <option value="kotlin">Kotlin</option>
                     </select>
-                    
-                    <select>
 
+                    <select id="filter-type" name="filter-type">
                         <button>
                             <selectedcontent></selectedcontent>
                         </button>
-                        <option>Tipo de Contrato</option>
-                        <option>Indefinido</option>
-                        <option>Duración Determinada</option>
-                        <option>Formativo</option>
-                        <option>Otros...</option>
+                        <option value="">Tipo de Contrato</option>
+                        <option value="indefinido">Indefinido</option>
+                        <option value="duración determinada">Duración Determinada</option>
+                        <option value="formativo">Formativo</option>
+                        <option value="otros...">Otros...</option>
                     </select>
-                    
-                    <select id="filter-location">
+
+                    <select id="filter-location" name="filter-location">
                         <button>
                             <selectedcontent></selectedcontent>
                         </button>
-                        <option>Ubicación</option>
-                        <option>Ciudad de México</option>
-                        <option>Guadalajara</option>
-                        <option>Madrid</option>
-                        <option>Remoto</option>
+                        <option value="">Ubicación</option>
+                        <option value="ciudad de mexico">Ciudad de México</option>
+                        <option value="guadalajara">Guadalajara</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="remoto">Remoto</option>
                     </select>
-                    
-                    <select>
+
+                    <select id="filter-experience" name="filter-experience">
                         <button>
                             <selectedcontent></selectedcontent>
                         </button>
-                        <option>Nivel de Experiencia</option>
-                        <option>Aprentice</option>
-                        <option>Junior</option>
-                        <option>Senior</option>
+                        <option value="">Nivel de Experiencia</option>
+                        <option value="aprentice">Aprentice</option>
+                        <option value="junior">Junior</option>
+                        <option value="senior">Senior</option>
                     </select>
+                </div>
+            </form>
+        </section>
+
+        <section class="job-list-component">
+
+            <h2>Resultados de búsqueda</h2>
+
+
+            <section>
+                <article class="job-list-card">
+
+                    <a href="tech-solutions-ofertas-001.html">
+                        <header>
+                            <h3>Ingeniero de Sofware</h3>
+                            <small>
+                                <span class="company-name">Tech Solutions Inc</span> |
+                                <span class="company-location">Remoto</span>
+                            </small>
+                        </header>
+
+                        <p>Buscamos un ingeniero de software con esperiencia en desarrollo web y conocimientos en
+                            JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener
+                            buenas habilidades de comunicación.</p>
+                    </a>
+
+                    <button class="btn-std">Aplicar</button>
+
+                </article>
+
+                <article class="job-list-card">
+
+                    <a href="data-driven-ofertas-001.hmtl">
+                        <header>
+                            <h3>Analista de datos</h3>
+                            <small>
+                                <span class="company-name">Data Driven Co.</span> |
+                                <span class="company-location">Ciudad de México</span>
+                            </small>
+                        </header>
+
+                        <p>Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de
+                            datos y herramientas de visualización. Se requiere conocimientos en SQL, Python y R.</p>
+                    </a>
+
+                    <button class="btn-std">Aplicar</button>
+
+                </article>
+
+                <article class="job-list-card">
+
+                    <a href="mobile-apps-ofertas-001.hmtl">
+                        <header>
+                            <h3>Desarrollador de Aplicaciones Móviles</h3>
+                            <small>
+                                <span class="company-name">Mobile Apps Ltd.</span> |
+                                <span class="company-location">Guadalajara</span>
+                            </small>
+                        </header>
+
+                        <p>Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El
+                            candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de
+                            usuario.</p>
+                    </a>
+
+                    <button class="btn-std">Aplicar</button>
+
+                </article>
+
+                <article class="job-list-card">
+
+                    <a href="cloud-services-ofertas-001.hmtl">
+                        <header>
+                            <h3>Ingeniero de DevOps</h3>
+                            <small>
+                                <span class="company-name">Cloud Services SA</span> |
+                                <span class="company-location">Remoto</span>
+                            </small>
+                        </header>
+
+                        <p>Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en
+                            la nube, automatización de procesos y herramientas de integración continua. Se requiere
+                            conocimiento en AWS, Azure o GCP.</p>
+                    </a>
+
+                    <button class="btn-std">Aplicar</button>
 
                 </article>
             </section>
 
-            <section class="job-list-component">
+            <nav class="pg-num">
+                <!-- Cuando tenemos un link que no tiene ningún contenido de texto descriptivo, los lectores de pantalla no lo pueden identificar. Por eso, es importante agregar el atributo aria-label para dar contexto al link.
+                Por otro lado, tenemos el atributo title, que sirve para mostrar un texto descriptivo cuando el usuario pasa el mouse por encima del link. -->
+                <a href="#" aria-label="Previous" title="Previous Page">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                </a>
+                <a class="is-active" href="#" aria-label="Page 1" title="Page 1">1</a>
+                <a href="#" aria-label="Page 2" title="Page 2">2</a>
+                <a href="#" aria-label="Page 3" title="Page 3">3</a>
+                <a href="#" aria-label="Page 4" title="Page 4">4</a>
+                <a href="#" aria-label="Page 5" title="Page 5">5</a>
+                <a href="#" aria-label="Next" title="Next Page">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 6l6 6l-6 6" />
+                    </svg>
+                </a>
+            </nav>
 
-                <h2>Resultados de búsqueda</h2>
+        </section>
 
-                
-                <section>
-                    <article class="job-list-card"> 
 
-                        <a href="tech-solutions-ofertas-001.html">
-                            <header>
-                                <h3>Ingeniero de Sofware</h3>
-                                <small>
-                                    <span class="company-name">Tech Solutions Inc</span> |
-                                    <span class="company-location">Remoto</span>
-                                </small>
-                            </header>
+    </main>
 
-                            <p>Buscamos un ingeniero de software con esperiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
-                        </a>
+    <footer class="site-footer">
+        <small>&copy; 2025 DEBJOBS. Todos los derechos reservados</small>
+    </footer>
+</body>
 
-                        <button class="btn-std">Aplicar</button>
-
-                    </article>
-
-                    <article class="job-list-card">
-
-                        <a href="data-driven-ofertas-001.hmtl">
-                            <header>
-                                <h3>Analista de datos</h3>
-                                <small>
-                                    <span class="company-name">Data Driven Co.</span> |
-                                    <span class="company-location">Ciudad de México</span>
-                                </small>
-                            </header>
-
-                            <p>Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimientos en SQL, Python y R.</p>
-                        </a>
-
-                        <button class="btn-std">Aplicar</button>
-
-                    </article>
-
-                    <article class="job-list-card">
-
-                        <a href="mobile-apps-ofertas-001.hmtl">
-                            <header>
-                                <h3>Desarrollador de Aplicaciones Móviles</h3>
-                                <small>
-                                    <span class="company-name">Mobile Apps Ltd.</span> |
-                                    <span class="company-location">Guadalajara</span>
-                                </small>
-                            </header>
-
-                            <p>Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
-                        </a>
-
-                        <button class="btn-std">Aplicar</button>
-
-                    </article>
-
-                    <article class="job-list-card">
-
-                        <a href="cloud-services-ofertas-001.hmtl">
-                            <header>
-                                <h3>Ingeniero de DevOps</h3>
-                                <small>
-                                    <span class="company-name">Cloud Services SA</span> |
-                                    <span class="company-location">Remoto</span>
-                                </small>
-                            </header>
-
-                            <p>Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.</p>
-                        </a>
-
-                        <button class="btn-std">Aplicar</button>
-
-                    </article>
-                </section>
-
-                <nav class="pg-num">
-    
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-                    </a>
-                    <a class="is-active" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
-                    </a>
-    
-                </nav>
-
-            </section>
-
-            
-        </main>
-
-        <footer class="site-footer">
-            <small>&copy; 2025 DEBJOBS. Todos los derechos reservados</small>
-        </footer>
-    </body>
 </html>
