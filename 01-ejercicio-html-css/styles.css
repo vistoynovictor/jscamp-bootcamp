@@ -13,6 +13,7 @@
     --color-shadow: rgba(0, 0, 0, 0.3);
     --color-input-bg: #1e293b;
     --color-svg-bg: rgb(0 153 255 / .3);
+    --max-width-site: 1200px;
 }
 
 @font-face {
@@ -42,18 +43,29 @@ body {
     align-items: center;
     line-height: 1.5;
     text-align: center;
-    
-    form{
-        background: var(--color-input-bg);
+
+    /* Los estilos estaban siendo muy genéricos, lo cual está bien pero todo "depende". Y en este caso, diversificar un poco es lo mejor.
+    Los estilos que se comparten entre ambos formularios principales, los agrupamos.
+    Los estilos que son específicos para cada formulario, los separamos. */
+    .employment-search {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
         width: 100%;
+    }
+
+    .landpg-search,
+    .employment-search .employment-search-bar
+    {
+        background: var(--color-input-bg);
         border-radius:10px;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: space-between;
-        padding: 8px;
-        gap: 16px;
         transition: 0.2s ease, width 0.4s ease-out;
+        gap: 16px;
         opacity: 0.8;
         
         &:hover, &:focus-within{
@@ -75,6 +87,15 @@ body {
             }
         }
         
+        svg{
+            margin-left: 10px
+        }
+    }
+
+    .landpg-search {
+        width: 40%;
+        padding: 8px;
+
         button{
             padding: 13px 15px;
             color: var(--color-text-primary);
@@ -84,13 +105,13 @@ body {
             font-weight: 600;
             font-size: 1rem;
         }
-        
-        svg{
-            margin-left: 10px
-        }
-        
-        
-    }    
+    }
+    
+    .employment-search .employment-search-bar {
+        width: 100%;
+        border: 1px solid var(--color-border);
+        padding: 1rem;
+    }
 }
 
 main{
@@ -101,7 +122,7 @@ main{
     width: 100%;
 
     & > .upper-employment, & > .job-list-component{
-        padding: 1rem 4rem 0 4rem;
+        padding: 1rem 1rem 0 1rem;
     }
 }
 
@@ -111,22 +132,23 @@ main{
     width: 100%;
     display: flex;
     flex-flow: row reverse;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem 2rem;
     padding: 0.5rem 1.5rem;
     border-bottom: 1px solid var(--color-border);
-
-    a{
-        text-decoration: none;  
-        h2{
+    flex-wrap: wrap;
+    
+    h2{
+        a {
+            text-decoration: none;  
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
             gap: 1rem;
             font-size: 1.25rem;
             color: var(--color-text-primary); 
-    
+            
             svg{
                 width: 2rem;
                 color: var(--color-primary);
@@ -140,6 +162,7 @@ main{
         justify-content: space-between;
         gap: 1rem;
         align-items: center;
+        flex-wrap: wrap;
 
         a {
             text-decoration: none;
@@ -268,10 +291,6 @@ main{
     width: 40%;
 }
 
-.employment-search{
-    border: 1px solid var(--color-border);
-}
-
 .landpg-cards{
     display: flex;
     flex-flow: column wrap;
@@ -326,6 +345,9 @@ main{
     align-items: center;
     gap: 20px;
     width: 100%;
+    /* Limitamos el ancho del contenido */
+    max-width: var(--max-width-site);
+    margin: 0 auto;
 
     h1{
         font-size: 2.5rem;
@@ -389,6 +411,9 @@ main{
 .job-list-component{
     text-align: left;
     width: 100%;
+    /* Limitamos el ancho del contenido */
+    max-width: var(--max-width-site);
+    margin: 0 auto;
 
     h2{
       font-size: 1.5rem; 
@@ -411,6 +436,8 @@ main{
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
 
     a{
         display: flex;
@@ -589,8 +616,24 @@ footer{
     }
 }
 
+/* Una manera distinta de hacer media queries, esto lo dejo para que veas que también se puede hacer asi:
+Lo que indica es: "Si el ancho de la pantalla es mayor o igual a 48rem, entonces..."
+Y 48rem significa 48 unidades de medida rem, que es una unidad de medida relativa que se basa en el tamaño de la fuente del navegador.
+En el curso de CSS se comenta porqué es mejor usar esta unidad dependiendo el caso.
+*/
+@media (width >= 48rem) {
+    .job-list-card{
+        flex-direction: row;
+        gap: 0; 
+    }
+
+    .site-header {
+        justify-content: space-between;
+    }
+}
+
 @media (max-width: 12810px){
-    .landpg-search{
+    body .landpg-search{
         width: 60%;
     }
 }
