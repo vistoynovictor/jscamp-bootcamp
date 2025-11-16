@@ -1,0 +1,34 @@
+@media (max-width: 1000px){
+    .img-hero{
+        height: 800px;
+    }
+}
+
+@media (width >= 58rem) {
+    .site-header{
+        justify-content: space-between;
+    }
+
+    .job-list-card{
+        flex-direction: row;
+        gap: 0; 
+    }
+
+    .mobileNavbar{
+        display: none;
+    }
+
+    .btnNavbar{
+        display: none;
+    }
+
+    .desktopNavbar{
+        display:flex;
+    }
+}
+
+@media (max-width: 12810px){
+    body .landpg-search{
+        width: 60%;
+    }
+}

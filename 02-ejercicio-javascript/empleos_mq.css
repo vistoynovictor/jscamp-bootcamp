@@ -1,0 +1,22 @@
+@media (width >= 48rem) {
+    .site-header{
+        justify-content: space-between;
+    }
+
+    .job-list-card{
+        flex-direction: row;
+        gap: 0; 
+    }
+
+    .mobileNavbar{
+        display: none;
+    }
+
+    .btnNavbar{
+        display: none;
+    }
+
+    .desktopNavbar{
+        display:flex;
+    }
+}

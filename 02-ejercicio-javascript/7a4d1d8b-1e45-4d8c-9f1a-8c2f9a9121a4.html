@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>DEVJOBS - Tech Solutions</title>
+    <meta name="description" content="Encuentra las mejores ofertas de trabajo para desarrolladores en Devjobs.">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./oferta-card.js" type="module"></script>
+    <script src="./devjobs-avatar.js" type="module"></script>
+    <script src="./resp-navbar.js" type="module"></script>
+    <link rel="stylesheet" href="./ofertas_mq.css"
+</head>
+<body>
+    <header class="site-header">
+
+            <h2>
+                <a href="index.html">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    DevJobs
+                </a>
+            </h2>
+
+           <nav class="desktopNavbar navbar">
+                <a href="./empleos.html">Empleos</a>
+                <a href="./empresas.html">Empresas</a>
+                <a href="./salarios.html">Salarios</a>
+            </nav>
+            
+            <form role="search" class="employment-search offer-search">
+                <div class="employment-search-bar">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="22"  height="22"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="1"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                    <input type="text" placeholder="Buscar"/>
+                </div>
+            </form>
+            
+            <div>
+                <button class="btn-std">Subir CV</button>
+                <devjobs-avatar></devjobs-avatar>
+                <button class="btnNavbar">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+            </div>
+        </header>
+
+        <details class="dropdownNavbar">
+            <summary></summary>
+            <nav class="mobileNavbar navbar">
+                <a href="./empleos.html">Empleos</a>
+                <a href="./empresas.html">Empresas</a>
+                <a href="./salarios.html">Salarios</a>
+            </nav>
+        </details>
+
+        <main>
+            <small class="empleos-route">Empleos / Tech Solutions Inc.</small>
+            <article class="job-offer-card">
+                <header>
+                    <section>
+                        <h1>Ingeniero de Software Senior</h1>
+                        <section>
+                            <small>Tech Solutions Inc.</small>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevrons-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7l5 5l-5 5" /><path d="M13 7l5 5l-5 5" /></svg>
+                            <small>Remoto</small>
+                        </section>
+                    </section>
+                    
+                    <button class="btn-std">Aplicar ahora</button>
+                </header>
+                
+                <article>
+                    <section>
+                        <h2>Descripción de puesto</h2>
+                        <p>
+                            Tech Solutions Inc. está buscando un Ingeniero de Software Senior altamente motivado y experimentado para unirse a nuestro equipo remoto. El candidato ideal tendrá una sólida formación en desarrollo de software, con experiencia en el diseño, desarrollo e implementación de soluciones de software escalables y de alto rendimiento. Como Ingeniero de Software Senior, usted será responsable de liderar proyectos de desarrollo, mentorizar a ingenieros junior y colaborar con equipos multifuncionales para entregar productos de software de alta calidad.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Responsabilidades</h2>
+                        <ul>
+                            <li>Diseñar, desarrollar y mantener aplicaciones web utilizando tecnologías modernas.</li>
+                            <li>Colaborar con equipos de producto y diseño para definir y entregar nuevas características.</li>
+                            <li>Escribir código limpio, eficiente y bien documentado.</li>
+                            <li>Realizar revisiones de código y proporcionar retroalimentación constructiva a los miembros del equipo.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Requisitos</h2>
+                        <ul>
+                            <li>Licenciatura en informática o campo relacionadoi.</li>
+                            <li>Mínimo de 5 años de experiencia en desarrollo de software.</li>
+                            <li>Experiencia con frameworks de JavaScript (por ejemplo: React, Angular, Vue.js).</li>
+                            <li>Familiaridad con metodologías ágiles y herramientas de control de versiones (por ejemplo: Git).</span></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Acerca de la empresa</h2>
+                        <p>
+                            Tech Solutions Inc. es una empresa de tecnología innovadora que se centra en la creación de soluciones de software de vanguardia para diversas industrias. Estamos comprometidos con el fomento de un entorno de trabajo colaborativo e inclusivo donde cada empleado pueda prosperar y crecer profesionalmente. Ofrecemos salarios competitivos, beneficios integrales y oportunidades de desarrollo profesional continuo.
+                        </p>
+                    </section>
+                </article>
+
+                <button class="btn-std">Aplicar Ahora</button>
+            </article>
+
+
+        </main>
+
+        <footer class="site-footer">
+            <small>&copy; 2025 DEBJOBS. Todos los derechos reservados</small>
+        </footer>
+</body>
+</html>
