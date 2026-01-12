@@ -1,9 +1,18 @@
-import filterStatus from './filters.js';
+/* 
+No hace falta usar esta función cada vez que se hace un filtrado o actualización de la DATA que se verá. Recordemos que, aunque trabajemos con archivos locales (nuestro JSON), un fetch es una función asíncrona, y si por cada filtrado o actualización de la DATA que se verá, ejecutáramos una petición fetch, la UX se volvería muy lenta.
 
-export default function createJobList (filter){
+Lo que hacemos es:
+- Ejecutar el fetch con toda la DATA resultante una sola vez
+- Una vez tengamos la DATA, usarla para filtrar y mostrar elementos en la pantalla, no volver a hacer un fetch
+*/
 
-    const container = document.querySelector('.job-list-component section');
-    container.innerHTML = '';
+
+function createJobList() {
+
+    // Es mejor acceder a un elemento desde su id o su identificador excacto, sin tener que recorrer el DOM para encontrarlo. Esto nos evita muchos problemas a la hora de modificar el HTML y hace que el código sea más legible.
+    const container = document.querySelector('.jobs-listings');
+    // no hace falta limpiar el contenido ya que esto lo ejecutaremos solo al inicio de la aplicación
+    // container.innerHTML = '';
     const pagination = document.querySelector('.pg-num');
     pagination.innerHTML = '';
 
@@ -11,32 +20,41 @@ export default function createJobList (filter){
     let pageNum = 0;
     let resultsCount = 0;
 
-    fetch('data.json')
+    // siempre es bueno apuntar a la ruta relativa del archivo aunque estemos en el mismo directorio
+    fetch('./data.json')
         .then(response => {
             const jsonData = response.json();
 
             return jsonData
         })
         .then(jobs => {
+            /* 
+                Creamos un DocumentFragment para mejorar el rendimiento.
+                En lugar de agregar cada trabajo directamente al DOM (lo que haría que el navegador redibuje la página múltiples veces), guardamos todos los elementos en memoria primero. Al final, agregamos todo de una sola vez.
+                
+                Es como preparar todos los platos en la cocina antes de llevarlos a la mesa, en vez de hacer un viaje por cada plato, llevamos todos juntos, y es mejor :)
+
+                Esto viene muy bien cuando tenemos muchos elementos que agregar al DOM.
+            */
+            const fragment = document.createDocumentFragment();
+            
             jobs.forEach(job => {
 
-                const checkTech = (queryTech) => job.data.tech.includes(queryTech);
+                /* const checkTech = (queryTech) => job.data.tech.includes(queryTech);
                 const someTech = filter.tech.length == 0 || filter.tech.every(checkTech);
 
                 const isLocation = filter.location === '' || job.data.location === filter.location;
                 const isExpLevel = filter.expLevel === '' || job.data.expLevel === filter.expLevel;
-                const hasSearch = filter.searchBar === '' || job.titulo.toLowerCase().includes(filter.searchBar);
+                const hasSearch = filter.searchBar === '' || job.titulo.toLowerCase().includes(filter.searchBar); */
 
-                if(someTech && isLocation && isExpLevel && hasSearch){
+                const article = document.createElement('article');
 
-                    const article = document.createElement('article');
-        
-                    article.className = 'job-list-card';
-                    article.dataset.tech = job.data.tech;
-                    article.dataset.location = job.data.location;
-                    article.dataset.expLevel = job.data.expLevel;
-                        
-                    article.innerHTML = `<a href="${job.id}.html">
+                article.className = 'job-list-card';
+                article.dataset.tech = job.data.tech;
+                article.dataset.location = job.data.location;
+                article.dataset.expLevel = job.data.expLevel;
+
+                article.innerHTML = `<a href="${job.id}.html">
                             <header>
                                 <h3>${job.titulo}</h3>
                                 <small>
@@ -49,11 +67,12 @@ export default function createJobList (filter){
                         </a>
         
                         <button class="btn-std">Aplicar</button>`
-                    
-                    resultsCount++;
-                    container.appendChild(article);
-                }
+
+                resultsCount++;
+                fragment.appendChild(article);
             })
+
+            container.appendChild(fragment);
 
             pageNum = Math.ceil(resultsCount / RESULTS_PER_PAGE);
 
@@ -68,14 +87,14 @@ export default function createJobList (filter){
             nextPage.ariaLabel = "Next";
             nextPage.title = "Next Page";
             nextPage.innerHTML = `<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>`;
-            
+
             pagination.append(prevPage);
 
-            for(let i = 0; i < pageNum; i++){
+            for (let i = 0; i < pageNum; i++) {
                 const page = document.createElement('a');
                 page.ariaLabel = `Page ${i + 1}`;
                 page.title = `Page ${i + 1}`;
-                if(i === 0){
+                if (i === 0) {
                     page.classList.add('is-active');
                 }
 
@@ -87,4 +106,4 @@ export default function createJobList (filter){
         });
 }
 
-createJobList(filterStatus);
+createJobList();
