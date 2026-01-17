@@ -1,0 +1,117 @@
+.employmentSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    width: 100%;
+
+    & > div{
+        background: var(--color-input-bg);
+        border-radius:10px;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        transition: 0.2s ease, width 0.4s ease-out;
+        gap: 16px;
+        opacity: 0.8;
+        width: 100%;
+        border: 1px solid var(--color-border);
+        padding: 1rem;
+
+        &:hover, &:focus-within{
+            opacity: 1;
+            gap: 10px;
+        }
+
+        input[type="text"]{
+            flex: 1 1 0;
+            background: none;
+            border: none;
+            color: var(--color-text-primary);
+            outline: none;
+            font-size: 1em;
+
+            &::placeholder{
+                color: var(--color-text-muted);
+            }
+        }
+
+        svg{
+            margin-left: 10px
+        }
+    }
+}
+
+.filterBar{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    width: 100%;
+
+    select, input{
+        appearance: base-select;
+        background-color: var(--color-input-bg);
+        border: none;
+        font-size: 0.8rem;
+        padding: 8px 10px;
+        color: var(--color-text-primary);
+        border-radius: 8px;
+        height: 2.3rem;
+        
+        &::picker(select){
+            appearance: base-select;
+            background: rgba(40, 65, 112, 0.7);
+            backdrop-filter: blur(3px);
+            border-radius: 10px;
+        }
+
+        &::picker-icon{
+            margin-left: 4px;
+            transition: 150ms ease-in;
+        }
+
+        &:open::picker-icon{
+            rotate: 180deg;
+        }
+
+        option{
+            color: var(--color-text-primary);
+            background-color: transparent;
+            padding: 8px 20px 8px 8px;
+            
+            &:hover{
+                background-color: rgba(2, 233, 250, 0.4);
+                cursor: pointer;
+            }
+
+            &::checkmark {
+                content: "";
+            }
+        }   
+
+        .selected {
+            background-color: rgba(2, 133, 250, 0.6);
+        } 
+    }
+}
+
+.msgContainer{
+    display: flex;
+    flex-flow: column nowrap;
+
+    .inputHint{
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
+        color: var(--color-primary);
+    }
+}
+
+.onFocus{
+    border: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-primary);
+    transition: 0.2s ease;
+}
+

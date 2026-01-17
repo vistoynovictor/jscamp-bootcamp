@@ -1,0 +1,32 @@
+.jobListCard{
+    padding: 1.2rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+
+    a{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.5rem;
+        width: 100%;
+        height: 100%;
+        text-decoration: none;
+        color: var(--color-text-primary);
+        
+        p{
+            font-size: 0.8rem;
+        }
+        
+        small{
+            color: var(--color-text-muted);
+        }
+    }    
+}
+
+.btnApplied{
+    background-color: limegreen;
+    opacity: 0.5;
+    pointer-events: none;
+}

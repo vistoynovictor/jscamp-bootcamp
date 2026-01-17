@@ -1,0 +1,44 @@
+.pagination{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-block: 20px;
+    gap: 0.5rem;
+
+    a{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-text-muted);
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+        border-radius: 5px;
+        transition: 0.2s;
+
+        &:hover, &:focus{
+            background-color: var(--color-text-primary);
+            color: var(--color-primary);
+            cursor: pointer;
+        }
+
+        &:active{
+            transform: scale(0.9);
+        }
+    }   
+    
+    svg{
+        height: 0.9rem;
+    }
+
+    .isActive{
+        background-color: var(--color-primary-light);
+        color: var(--color-text-primary);
+        pointer-events: none;
+    }
+}
+
+
