@@ -1,6 +1,8 @@
-let timeoutId = null
+import { useRef } from "react"
 
 export function useSearch({techId, locationId, expLevelId, txtSearchId, OnSearch}){
+
+    const timeoutId = useRef(null)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -9,8 +11,8 @@ export function useSearch({techId, locationId, expLevelId, txtSearchId, OnSearch
         const textSearchCheck = e.target.name === txtSearchId
 
         if (textSearchCheck){
-            if (timeoutId) {
-                clearTimeout(timeoutId)
+            if (timeoutId.current) {
+                clearTimeout(timeoutId.current)
             }
         }
 
@@ -22,7 +24,7 @@ export function useSearch({techId, locationId, expLevelId, txtSearchId, OnSearch
         }
         
         if (textSearchCheck){
-            timeoutId = setTimeout(() => {
+            timeoutId.current = setTimeout(() => {
                 OnSearch(filters)
             }, 500)
         }else{

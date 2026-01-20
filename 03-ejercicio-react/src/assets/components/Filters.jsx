@@ -1,19 +1,20 @@
-import { useId } from 'react';
+import { useId, useRef } from 'react';
 import { useState } from 'react';
 
 import { useSearch } from '../../hooks/useSearch';
 import styles from './Filters.module.css';
 
-export function Filters ({filterActive, OnSearch, handleClearFilters}) {
+export function Filters ({initialValues, filterActive, OnSearch, handleClearFilters}) {
 
     const techId = useId();
     const locationId = useId();
     const expLevelId = useId();
     const txtSearchId = useId();
-    {/*
-    const salaryId = useId();
-    const contractId = useId();
-    */}
+    
+    const techRef = useRef()
+    const locationRef = useRef()
+    const expLevelRef = useRef()
+    const txtSearchRef = useRef()
 
     const [focusedField, setFocusField] = useState(null);
 
@@ -23,11 +24,11 @@ export function Filters ({filterActive, OnSearch, handleClearFilters}) {
         <form role="search" className={styles.employmentSearch} onChange={handleSubmit}>
             <div onFocus={() => setFocusField('search')} onBlur={() => setFocusField(null)} className={focusedField === 'search' ? styles.onFocus : ''}>
                 <svg aria-hidden="True" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-search"> <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /> <path d="M21 21l-6 -6" /></svg>
-                <input name={txtSearchId} type="text" placeholder="Buscar empleo por titulo, habilidad o empresa" autoComplete="off"/>
+                <input ref={txtSearchRef} defaultValue={initialValues.txtSearch} name={txtSearchId} type="text" placeholder="Buscar empleo por titulo, habilidad o empresa" autoComplete="off"/>
             </div>
 
             <article className={styles.filterBar}>
-                <select name={techId} id={techId}>
+                <select ref={techRef} defaultValue={initialValues.tech} name={techId} id={techId}>
                     <option value="">Tecnologías</option>
                     <option value="html">HTML</option>
                     <option value="node">Node.js</option>
@@ -45,7 +46,7 @@ export function Filters ({filterActive, OnSearch, handleClearFilters}) {
                     <option value="kotlin">Kotlin</option>
                 </select>
 
-                <select name={locationId} id={locationId}>
+                <select ref={locationRef} defaultValue={initialValues.location} name={locationId} id={locationId}>
                     <option value="">Ubicación</option>
                     <option value="cdmx">Ciudad de México</option>
                     <option value="guadalajara">Guadalajara</option>
@@ -53,14 +54,14 @@ export function Filters ({filterActive, OnSearch, handleClearFilters}) {
                     <option value="remoto">Remoto</option>
                 </select>
 
-                <select name={expLevelId} id={expLevelId}>
+                <select ref={expLevelRef} defaultValue={initialValues.expLevel} name={expLevelId} id={expLevelId}>
                     <option value="">Nivel de Experiencia</option>
                     <option value="junior">Junior</option>
                     <option value="mid-level">Mid</option>
                     <option value="senior">Senior</option>
                 </select>
 
-                {filterActive && <button className='btn-std' onClick={handleClearFilters}>Limpiar filtros</button>}
+                {filterActive && <button className='btn-std' onClick={ e => handleClearFilters(e, techRef, locationRef, expLevelRef, txtSearchRef)}>Limpiar filtros</button>}
 
                 {/*
                 <div className={styles.msgContainer}>

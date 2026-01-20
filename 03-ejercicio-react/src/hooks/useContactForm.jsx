@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import styles from '../pages/Contact.module.css'
 
 export function useContactForm({nameId, emailId, messageId}){
     const [fieldContent, setFieldContent] = useState(
@@ -40,7 +41,7 @@ export function useContactForm({nameId, emailId, messageId}){
             setSending(false)
         }, 2000)
 
-        setConfirmMessage(<h3>Mensaje enviado con exito</h3>)
+        setConfirmMessage(<h3 className={styles.message}>Mensaje enviado con exito</h3>)
 
         const message = setTimeout(() =>{
             setConfirmMessage('')

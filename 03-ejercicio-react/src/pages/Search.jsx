@@ -6,7 +6,7 @@ import { useFilters } from '../hooks/useFilters.jsx'
 
 export function SearchPage(){
     
-    const {jobs, loading, currentPage, handleFilters, handlePageChange, total, totalPages, filterActive, clearFilters, error} = useFilters()
+    const {jobs, loading, filters, currentPage, handleFilters, handlePageChange, total, totalPages, filterActive, clearFilters, error} = useFilters()
 
     const title = `Ofertas: ${total}, Página: ${currentPage} - DevJobs`
 
@@ -16,7 +16,7 @@ export function SearchPage(){
             <section className="upper-employment">
                 <h1>Encuentra tu próximo trabajo</h1>
                 <p>Explora miles de oportunidades en el sector tecnológico.</p>
-                <Filters OnSearch={handleFilters} filterActive={filterActive} handleClearFilters={clearFilters}/>
+                <Filters initialValues={filters} OnSearch={handleFilters} filterActive={filterActive} handleClearFilters={clearFilters}/>
             </section>
             <section className="job-list-component">
                 <h2>Resultados de búsqueda</h2>

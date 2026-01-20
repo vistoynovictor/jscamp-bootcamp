@@ -1,0 +1,48 @@
+h1{
+    text-align: center;
+    line-height: 2rem;
+    margin-top: 1rem;
+}
+
+.form{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: var(--max-width-site);
+
+    input,textarea{
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+        color: black;
+        outline: none;
+        font-size: 1em;
+
+        &::placeholder{
+            color: var(--color-text-muted);
+        }
+
+    }
+    
+    input{
+        height: 1.5rem;
+    }
+
+    textarea{
+        height: 20.5;
+        max-width: 100%;
+    }
+
+    button{
+        align-self: flex-end;
+    }
+
+    .message{
+        color: var(--color-primary);
+    }
+}
+
