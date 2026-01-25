@@ -3,6 +3,13 @@ import { useRouter } from './useRouter'
 
 const RESULTS_PER_PAGE = 4;
 
+const INITIAL_FILTERS_STATE = {
+    tech: '',
+    location: '',
+    expLevel: '',
+    txtSearch: ''
+}
+
 export function useFilters(){
     const { navigateTo } = useRouter()
 
@@ -23,13 +30,7 @@ export function useFilters(){
 
             return paramsContent
         }else{
-            return retrievedStorage.filters || 
-                {
-                    tech: '',
-                    location: '',
-                    expLevel: '',
-                    txtSearch: ''
-                }
+            return retrievedStorage.filters || INITIAL_FILTERS_STATE
         }
     })
  
@@ -64,18 +65,13 @@ export function useFilters(){
     const handlePageChange = (page) => {
         setCurrentPage(page);
     }
-2
+
     const clearFilters = (e, techRef, locationRef, expLevelRef, txtSearchRef ) => {
         e.preventDefault()
 
         localStorage.removeItem('jobFilters')
 
-        setFilters({
-            tech: '',
-            location: '',
-            expLevel: '',
-            txtSearch: ''
-        })
+        setFilters(INITIAL_FILTERS_STATE)
 
         if(currentPage !== 1){
             setCurrentPage(1)
@@ -133,7 +129,7 @@ export function useFilters(){
         }
 
         fetchJobs()
-    },[filters, currentPage])
+    },[filters, currentPage, filterActive])
 
     useEffect(()=>{
         const params = new URLSearchParams()
