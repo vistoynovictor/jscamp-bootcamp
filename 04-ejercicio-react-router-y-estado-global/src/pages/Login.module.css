@@ -1,0 +1,164 @@
+.loginTitles{ 
+    text-align: center;
+}
+
+h1.loginTitles{
+    margin-top: 2rem;
+}
+
+h2.loginTitles{
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+
+
+.loginBox{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 2rem auto;
+    border: 2px solid var(--color-border);
+    border-radius:10px;
+    padding: 2rem;
+    gap: 1rem;
+    max-width: 500px;
+
+    .textInput {
+        background: var(--color-background);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        border: 1px solid var(--color-border);
+        border-radius:5px;
+        width: 100%;
+        padding: 0.5rem;
+
+        &:hover, &:active{
+            background-color: var(--color-input-bg);
+            outline: 1px solid var(--color-text-primary);
+        }
+
+        input{
+            flex-grow: 1;
+            background: none;
+            border: none;
+            color: var(--color-text-primary);
+            outline: none;
+            font-size: 1em;
+
+            &::placeholder{
+                color: var(--color-text-muted);
+                font-size: 0.8rem;
+            }
+        }
+
+        svg{
+            margin-left: 3%;
+            flex-shrink: 0;
+            color: var(--color-text-primary);
+        } 
+    }
+
+    .lowerOptions{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+
+        label {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--color-text-primary);
+
+            input {
+                display: none;
+            }
+
+            span{
+                width: 15px;
+                height: 15px;
+                border: 1px solid var(--color-border);
+                border-radius: 5px;
+                background-color: var(--color-background);
+                align-content: center;
+
+                &::after {
+                    content: '';
+                    display: none;
+                }
+
+                &:hover{
+                    background-color: var(--color-input-bg);
+                    outline: 1px solid var(--color-text-primary);
+                }
+            }
+
+            input:checked + span::after{
+                display: block;
+                margin: 0 auto;
+                width: 10px;
+                height: 10px;
+                background: var(--color-text-muted);
+                border-radius: 50%;
+            }
+
+            input:checked + span{
+                border-color: var(--color-primary); 
+
+                &:hover{
+                    border: none;
+                    background: none;
+
+                    &::after{
+                        background: var(--color-primary);
+                    }
+                }
+            }
+        }
+
+        a{
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--color-primary);
+        }
+    }
+
+    .noAccount{
+        width: 100%;
+        border-top: 1px solid var(--color-text-muted);
+        position: relative;
+
+        small{
+            color: var(--color-text-muted);
+            background: var(--color-background);
+            padding: 5px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+        }
+
+        div{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+
+            a{
+                text-decoration: none;
+
+                button{
+                    padding: 2rem 1rem;
+                }
+            }
+        }
+    }
+}

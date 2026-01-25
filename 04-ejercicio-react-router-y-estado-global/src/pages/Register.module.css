@@ -1,0 +1,139 @@
+.registerTitles{ 
+    text-align: center;
+}
+
+h1.registerTitles{
+    margin-top: 2rem;
+}
+
+h2.registerTitles{
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.container{
+    padding: 2rem 0;
+
+    form{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        max-width: 40%;
+        margin: 0 auto;
+
+        & > article{
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1rem;
+            align-items: center;
+
+            &:not(:first-child){
+                margin-top: 1rem;
+                border-top: 2px solid var(--color-border);
+            }
+
+            h3{
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            label{
+                min-width: 18rem;
+                width: 100%;
+                color: var(--color-text-muted);
+                font-size: 0.8rem;
+
+                input{
+                    width: 100%;
+                    background-color: transparent;
+                    color: var(--color-text-primary);
+                    padding: 0.5rem;
+                    border: none;
+                    outline: 1px solid var(--color-text-muted);
+                    border-radius: 5px;
+                    margin-top: 0.2rem;
+
+                    &:hover, &:active{
+                        background-color: var(--color-input-bg);
+                        outline: 1px solid var(--color-text-primary);
+                    }
+                }
+            }
+
+            .textareaLabel{
+                min-width: 100%;
+
+                textarea{
+                    width: 100%;
+                    background-color: transparent;
+                    color: var(--color-text-primary);
+                    padding: 0.5rem;
+                    border: none;
+                    outline: 1px solid var(--color-text-muted);
+                    border-radius: 5px;
+                    margin-top: 0.2rem;
+                    resize: none;
+
+                    &:hover, &:active{
+                        background-color: var(--color-input-bg);
+                        outline: 1px solid var(--color-text-primary);
+                    }
+
+                    &{
+                        scrollbar-width: thin;
+                        scrollbar-color: var(--color-primary) var(--color-svg-bg);
+                    }
+
+                    &::-webkit-scrollbar{
+                        width: 0.5rem;
+                    }
+
+                    &::-webkit-scrollbar-track{
+                        background-color: var(--color-svg-bg);
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: var(--color-primary);
+                        border-radius: 8px;
+                        border:none;
+                    }
+                }
+            }
+
+
+            .dropFile{
+                min-width: 100%;
+                text-align: center;
+                color: var(--color-text-primary);
+                padding: 0.5rem 0 1rem;
+                border: none;
+                outline: 1px dashed var(--color-text-muted);
+                border-radius: 5px;
+                margin-top: 0.2rem;
+
+                &:hover, &:active{
+                    background-color: var(--color-input-bg);
+                    outline: 1px solid var(--color-text-primary);
+                }
+
+                small{
+                    color: var(--color-text-muted);
+                }
+
+                svg{
+                    color: var(--color-text-muted);
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+    } 
+}
+
+.saveChangesButton{
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 1rem;
+}

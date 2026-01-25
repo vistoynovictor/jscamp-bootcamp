@@ -1,0 +1,115 @@
+.empleosRoute{
+    align-self: flex-start;
+    padding: 2rem 8%;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 300;
+        
+        a{
+            text-decoration: none;
+            color: inherit;
+            transition: all 300ms ease-in-out;
+
+            &:hover, &:active{
+            color: var(--color-primary);
+            font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 0.3rem;
+            border-radius: 5px;
+        }
+        }
+}
+
+.jobOfferCard{
+    text-align: left;
+    padding: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+
+    & > header{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        
+        & > section{
+
+            h1{
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                text-align: left;
+            }
+            
+            section{
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                gap: 0.3rem;
+                font-weight: 290;
+
+                svg{
+                    width: 1.3rem;
+                    height: 2rem;
+                }
+            }
+        }
+
+        button{
+            margin: 1rem;
+        }
+    }
+    
+    & > article{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        gap: 2.5rem;
+        border-bottom: 1px solid var(--color-border);
+        padding-bottom: 2rem;
+
+        h2{
+            font-size: 1.9rem;
+            font-weight: 600;
+            line-height: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p, li{
+            font-size: 1.1rem;
+            font-weight: 290;
+            text-wrap: pretty;
+            line-height: 1.7;
+        }
+
+        ul{
+            list-style-type: none;
+
+            li::before{
+                color: var(--color-primary);
+                content: url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%2224%22%20height=%2224%22%20viewBox=%220%200%2024%2024%22%20fill=%22none%22%20stroke=%22%231173d4%22%20stroke-width=%222%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-check%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M5%2012l5%205l10%20-10%22%20/%3E%3C/svg%3E");
+                margin-right: 1rem;
+            }
+
+            & li:not(:last-child){
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+.back{
+    display: block;
+    margin: 1rem auto;
+}
+
+.btnApplied, .btnFavorite{
+    background-color: var(--color-svg-bg);
+    opacity: 0.5;
+}

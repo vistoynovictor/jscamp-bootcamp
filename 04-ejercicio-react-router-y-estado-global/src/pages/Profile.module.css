@@ -1,0 +1,161 @@
+.container{
+    margin: 2rem auto;
+    max-width: 70%;
+
+    h1,h2{
+        text-align: center;    
+    }
+
+    h2{
+        font-size: 1rem;
+        color: var(--color-text-muted);
+        font-weight: 500;
+    }
+
+    form{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        margin-top: 2rem;
+
+        & > article{
+            display: flex;
+            flex-flow: row wrap;
+            gap: 2rem;
+
+            &:not(:first-child){
+                margin-top: 1rem;
+                border-top: 2px solid var(--color-border);
+            }
+
+            h3{
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            label{
+                min-width: 18rem;
+                max-width: calc(50% - 2rem);
+                flex-grow: 1;
+                color: var(--color-text-muted);
+                font-size: 0.8rem;
+            
+                input{
+                    width: 100%;
+                    background-color: transparent;
+                    color: var(--color-text-primary);
+                    padding: 0.5rem;
+                    border: none;
+                    outline: 1px solid var(--color-text-muted);
+                    border-radius: 5px;
+                    margin-top: 0.2rem;
+
+                    &:hover, &:active{
+                        background-color: var(--color-input-bg);
+                        outline: 1px solid var(--color-text-primary);
+                    }
+                }
+            }
+
+            .textareaLabel{
+                min-width: 100%;
+
+                textarea{
+                    width: 100%;
+                    background-color: transparent;
+                    color: var(--color-text-primary);
+                    padding: 0.5rem;
+                    border: none;
+                    outline: 1px solid var(--color-text-muted);
+                    border-radius: 5px;
+                    margin-top: 0.2rem;
+                    resize: none;
+
+                    &:hover,&:focus{
+                        background-color: var(--color-input-bg);
+                        outline: 1px solid var(--color-text-primary);
+                    }
+
+                    &{
+                        scrollbar-width: thin;
+                        scrollbar-color: var(--color-primary) var(--color-svg-bg);
+                    }
+
+                    &::-webkit-scrollbar{
+                        width: 0.5rem;
+                    }
+
+                    &::-webkit-scrollbar-track{
+                        background-color: var(--color-svg-bg);
+                    }
+
+                    &::-webkit-scrollbar-thumb {
+                        background-color: var(--color-primary);
+                        border-radius: 8px;
+                        border:none;
+                    }
+                }
+            }
+
+
+            .dropFile{
+                min-width: 100%;
+                text-align: center;
+                color: var(--color-text-primary);
+                padding: 0.5rem 0 1rem;
+                border: none;
+                outline: 1px dashed var(--color-text-muted);
+                border-radius: 5px;
+                margin-top: 0.2rem;
+
+                &:hover, &:active{
+                    background-color: var(--color-input-bg);
+                    outline: 1px solid var(--color-text-primary);
+                }
+
+                small{
+                    color: var(--color-text-muted);
+                }
+
+                svg{
+                    color: var(--color-text-muted);
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+        }
+    } 
+}
+
+.saveChangesButton{
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.skillsList{
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5rem;
+    width: 100%;
+
+    button{
+        padding: 0.50rem 1rem;
+        border-radius: 1rem;
+        color: var(--color-text-primary);
+        background: var(--color-primary-dark);
+        border: none;
+        font-size: 1rem;
+        transition: all 0.3s ease-out;
+        cursor: pointer;
+
+        &:hover, &:focus{
+            background-color: var(--color-card-bg);
+            color: var(--color-primary);
+        }
+
+        &:active{
+            transform: scale(0.9);
+            transition: scale 0.2s ease-in;
+        }
+    }
+}
