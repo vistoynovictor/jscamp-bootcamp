@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useRouter } from './useRouter'
+import { useSearchParams } from 'react-router';
 
 const RESULTS_PER_PAGE = 4;
 
@@ -11,12 +11,13 @@ const INITIAL_FILTERS_STATE = {
 }
 
 export function useFilters(){
-    const { navigateTo } = useRouter()
+    /* Para simplificar el uso de los search params, vamos a usar el hook de React Router */
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const [filters, setFilters] = useState(() =>{ 
         const retrievedStorage = JSON.parse(localStorage.getItem('jobFilters')) || 'null'
 
-        const params = new URLSearchParams(window.location.search)
+        const params = searchParams
         const hasParams = params.toString().length > 0
 
         if (hasParams){
@@ -46,7 +47,7 @@ export function useFilters(){
     const [currentPage, setCurrentPage] = useState(()=>{
         const retrievedStorage = JSON.parse(localStorage.getItem('jobFilters')) || 'null'
 
-        const params = new URLSearchParams(window.location.search)
+        const params = searchParams
         const hasParams = params.toString().length > 0
 
         if (hasParams){
@@ -132,20 +133,16 @@ export function useFilters(){
     },[filters, currentPage, filterActive])
 
     useEffect(()=>{
-        const params = new URLSearchParams()
-
-        if (filters.tech) params.append('technology', filters.tech)
-        if (filters.location) params.append('type', filters.location)
-        if (filters.expLevel) params.append('level', filters.expLevel)
-        if (filters.txtSearch) params.append('text', filters.txtSearch)
-        if (currentPage > 1) params.append('page', currentPage)
-        
-        const newUrl = params
-            ? `${window.location.pathname}?${params.toString()}`
-            : `${window.location.pathname}`
-
-        navigateTo(newUrl)
-    },[filters, currentPage, navigateTo])
+        setSearchParams((params) => {
+            if (filters.tech) params.set('technology', filters.tech)
+            if (filters.location) params.set('type', filters.location)
+            if (filters.expLevel) params.set('level', filters.expLevel)
+            if (filters.txtSearch) params.set('text', filters.txtSearch)
+            if (currentPage > 1) params.set('page', currentPage)
+            
+            return params 
+        })
+    },[filters, currentPage, setSearchParams])
 
     const totalPages = Math.ceil(total / RESULTS_PER_PAGE);
 
