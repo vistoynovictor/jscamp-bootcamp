@@ -23,7 +23,7 @@ export function JobCardFavoriteButton({jobId}){
     )
 }
 
-export function JobCardApplyButton({jobId}){
+export function JobCardApplyButton(){
 
     const [isApplied,setIsApplied] = useState(false)
     const { isLoggedIn } = useAuthStore()
