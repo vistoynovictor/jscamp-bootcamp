@@ -110,7 +110,7 @@ export function useFilters(){
                 
                 const queryParams = params.toString()
 
-                const response = await fetch(`https://jscamp-api.vercel.app/api/jobs?${queryParams}`)
+                const response = await fetch(`http://localhost:1234/jobs?${queryParams}`)
 
                 if(!response.ok){
                     throw new Error(`Error ${response.status}: ${response.statusText}.`)
@@ -133,6 +133,7 @@ export function useFilters(){
 
     useEffect(()=>{
         const params = new URLSearchParams()
+        console.log(params)
 
         if (filters.tech) params.append('technology', filters.tech)
         if (filters.location) params.append('type', filters.location)
@@ -140,11 +141,15 @@ export function useFilters(){
         if (filters.txtSearch) params.append('text', filters.txtSearch)
         if (currentPage > 1) params.append('page', currentPage)
         
-        const newUrl = params
+        const currentUrl = window.location.search
+            ? window.location.pathname + window.location.search
+            : window.location.pathname
+
+        const newUrl = params.size > 0
             ? `${window.location.pathname}?${params.toString()}`
             : `${window.location.pathname}`
 
-        navigateTo(newUrl)
+        if (newUrl !== currentUrl ) navigateTo(newUrl)
     },[filters, currentPage, navigateTo])
 
     const totalPages = Math.ceil(total / RESULTS_PER_PAGE);
