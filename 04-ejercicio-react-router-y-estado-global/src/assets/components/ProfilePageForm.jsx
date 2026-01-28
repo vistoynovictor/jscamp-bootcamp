@@ -1,4 +1,4 @@
-import styles from './Profile.module.css'
+import styles from '../../pages/Profile.module.css'
 
 export function Form(){
     const skillsList = ['javascript', 'react', 'node.js', 'html', 'css']
