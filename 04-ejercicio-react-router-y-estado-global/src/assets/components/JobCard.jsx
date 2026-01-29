@@ -24,7 +24,7 @@ export function JobCard({job}) {
             </Link>
 
             <section className={styles.buttonSection}>
-                <JobCardApplyButton jobId={job.id} />
+                <JobCardApplyButton />
                 <JobCardFavoriteButton jobId={job.id}/> 
             </section>
             

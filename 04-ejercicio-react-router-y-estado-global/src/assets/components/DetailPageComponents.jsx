@@ -28,11 +28,14 @@ export function DetailApplyButton(){
 }
 
 export function DetailFavoritesButton({id}){
+    /* Vamos a habilitar o deshabilitar el botón de favoritos dependiendo si el usuario está autenticado o no */
+    const {isLoggedIn} = useAuthStore()
     const {isFavorite, toggleFavorite} = useFavoritesStore()
     const btnFav = isFavorite(id) ? styles.btnFavorite : ''
 
     return(
         <button 
+            disabled={!isLoggedIn}
             className={`btn-std ${btnFav}`}
             onClick={() => toggleFavorite(id)}>
             {

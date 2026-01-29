@@ -15,7 +15,7 @@ export function useContactForm({nameId, emailId, messageId}){
 
     const handleSubmit = e => {
         e.preventDefault()
-        const param = new URLSearchParams()
+        // const param = new URLSearchParams()
         
         setSending(false)
 
