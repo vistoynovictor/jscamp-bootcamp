@@ -1,15 +1,92 @@
 import { createServer } from 'node:http'
+import { json } from 'node:stream/consumers'
+import { randomUUID } from 'node:crypto'
 
 process.loadEnvFile()
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT ?? 3000
 
-const server = createServer((req, res) => {
-  // TODO: Aquí irá la lógica del servidor
+function sendJson(res, statusCode, data) {
+  res.statusCode = statusCode
+  res.setHeader('Content-Type', 'application/json; charset=utf-8')
+  res.end(JSON.stringify(data))
+}
+
+const server = createServer(async (req, res) => {
+  const { method, url } = req
+
+  const [pathname, queryString] = url.split('?')
+
+  const searchParams = new URLSearchParams(queryString)
+
+  if (method === 'GET') {
+
+    if (pathname === '/health') {
+      return sendJson(res, 200, { status: 'ok', uptime: process.uptime() })
+    }
+
+    if (pathname === '/users') {
+
+      const name = searchParams.get('name')
+      const minAge = Number(searchParams.get('minAge'))
+      const maxAge = Number(searchParams.get('maxAge'))
+
+      if (Number.isNaN(minAge) || Number.isNaN(maxAge)) {
+        return sendJson(res, 400, { message: 'Bad request. Age range parameters must be a number' })
+      }
+
+      const limit = Number(searchParams.get('limit')) || users.length
+      const offset = Number(searchParams.get('offset')) || 0
+
+      const filteredUsers = users.filter(user =>
+        name ? user.name.toLowerCase() === name.toLowerCase() : true &&
+          minAge !== 0 ? user.age >= minAge : true &&
+            maxAge !== 0 ? user.age <= maxAge : true
+      )
+
+      const paginatedUsers = filteredUsers.slice(offset, offset + limit)
+
+      return sendJson(res, 200, paginatedUsers)
+    }
+
+    /* 
+     if (pathname === '/cookies') {
+      res.setHeader('Set-Cookie', 'token=abc123; HttpOnly; Path=/; Max-Age=3600')
+      return res.end('Cookie Set')
+    }
+    */
+  }
+
+  if (method === 'POST') {
+    if (pathname === '/users') {
+      const body = await json(req)
+
+      if (!body || !body.name) {
+        return sendJson(res, 400, { message: 'Name is required' })
+      }
+
+      if (!body.age) {
+        return sendJson(res, 400, { message: 'Age is required' })
+      }
+
+      const newUser = {
+        id: randomUUID(),
+        name: body.name,
+        age: body.age,
+      }
+
+      users.push(newUser)
+
+      return sendJson(res, 201, { message: 'Usuario creado' })
+    }
+  }
+
+  return sendJson(res, 404, { error: 'Not Found' })
 })
 
 server.listen(port, () => {
   const address = server.address()
+
   console.log(`Servidor escuchando en http://localhost:${address.port}`)
 })
 
