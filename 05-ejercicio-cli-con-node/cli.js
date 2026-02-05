@@ -28,7 +28,11 @@ let dir = !args[0] || args[0].includes('-') ? '.' : args[0]
 let ordering
 let filtering
 
-
+// Debemos verificar que el usuario tenga permiso para leer el directorio, no solo para ejecutar el script
+if (!process.permission.has('fs.read', dir)) {
+  console.log('Permission denied, use flag [--permission --allow-fs-read=[directorio_a_leer]]')
+  process.exit(1)
+}
 
 const isLocationOnly = args.length <= 1 && !args[0]?.includes('-')
 
@@ -60,7 +64,8 @@ const formatBytes = size => {
 
   if (size < 1024) return `${size}B`
 
-  return `${ size / 1024 }KB`
+  /* Simplificamos la lectura con un toFixed */
+  return `${ (size / 1024).toFixed(2) }KB`
 }
 
 // Creando datos para output (entries)
