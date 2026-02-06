@@ -17,7 +17,8 @@ const server = createServer(async (req, res) => {
 
   const [pathname, queryString] = url.split('?')
 
-  const searchParams = new URLSearchParams(queryString)
+  // Crack! Esto que hiciste está muy bien :) Lo voy a mover dentro de pathname === '/users' por el hecho de que se usa las query params solo en esa ruta. Es por un tema de agrupar la lógica en la ruta. Solo eso si?
+  // const searchParams = new URLSearchParams(queryString)
 
   if (method === 'GET') {
 
@@ -26,6 +27,7 @@ const server = createServer(async (req, res) => {
     }
 
     if (pathname === '/users') {
+      const searchParams = new URLSearchParams(queryString)
 
       const name = searchParams.get('name')
       const minAge = Number(searchParams.get('minAge'))
@@ -38,13 +40,26 @@ const server = createServer(async (req, res) => {
       const limit = Number(searchParams.get('limit')) || users.length
       const offset = Number(searchParams.get('offset')) || 0
 
+
+      // Creé un filtro distinto para que sea más legible y acepte parámetros opcionales
+      const filteredUsersList = users.filter((user) => {
+        const normalizedUserName = name ? name.toLowerCase() : ''
+
+        const matchName = user.name.toLowerCase().includes(normalizedUserName)
+
+        const matchMinAge = minAge ? user.age >= minAge : true
+        const matchMaxAge = maxAge ? user.age <= maxAge : true
+
+        return matchName && matchMinAge && matchMaxAge
+      })
+
       const filteredUsers = users.filter(user =>
         name ? user.name.toLowerCase() === name.toLowerCase() : true &&
           minAge !== 0 ? user.age >= minAge : true &&
             maxAge !== 0 ? user.age <= maxAge : true
       )
 
-      const paginatedUsers = filteredUsers.slice(offset, offset + limit)
+      const paginatedUsers = filteredUsersList.slice(offset, offset + limit)
 
       return sendJson(res, 200, paginatedUsers)
     }
@@ -59,7 +74,13 @@ const server = createServer(async (req, res) => {
 
   if (method === 'POST') {
     if (pathname === '/users') {
-      const body = await json(req)
+      // Con esto, el server no crashea si el usuario manda algo que no es un JSON válido
+      let body
+      try {
+        body = await json(req)
+      } catch (error) {
+        return sendJson(res, 400, { message: 'Invalid JSON syntax' })
+      }
 
       if (!body || !body.name) {
         return sendJson(res, 400, { message: 'Name is required' })
@@ -77,7 +98,8 @@ const server = createServer(async (req, res) => {
 
       users.push(newUser)
 
-      return sendJson(res, 201, { message: 'Usuario creado' })
+      // Siempre es bueno devolver el usuario creado o un link que permita ver el usuario creado
+      return sendJson(res, 201, { message: 'Usuario creado', user: newUser })
     }
   }
 
