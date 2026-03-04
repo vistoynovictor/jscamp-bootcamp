@@ -6,7 +6,11 @@
     "ubicacion": "Remoto",
     "descripcion": "Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.",
     "data": {
-      "technology": ["react", "node", "javascript"],
+      "technology": [
+        "react",
+        "node",
+        "javascript"
+      ],
       "modalidad": "remoto",
       "nivel": "senior"
     },
@@ -24,7 +28,12 @@
     "ubicacion": "Ciudad de México",
     "descripcion": "Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimiento en SQL, Python y R.",
     "data": {
-      "technology": ["python", "sql", "r", "pandas"],
+      "technology": [
+        "python",
+        "sql",
+        "r",
+        "pandas"
+      ],
       "modalidad": "cdmx",
       "nivel": "junior"
     },
@@ -42,7 +51,12 @@
     "ubicacion": "Guadalajara",
     "descripcion": "Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.",
     "data": {
-      "technology": ["swift", "kotlin", "react-native", "flutter"],
+      "technology": [
+        "swift",
+        "kotlin",
+        "react-native",
+        "flutter"
+      ],
       "modalidad": "guadalajara",
       "nivel": "mid-level"
     },
@@ -60,7 +74,14 @@
     "ubicacion": "Remoto",
     "descripcion": "Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.",
     "data": {
-      "technology": ["aws", "azure", "gcp", "docker", "kubernetes", "terraform"],
+      "technology": [
+        "aws",
+        "azure",
+        "gcp",
+        "docker",
+        "kubernetes",
+        "terraform"
+      ],
       "modalidad": "remoto",
       "nivel": "mid-level"
     },
@@ -78,7 +99,12 @@
     "ubicacion": "Barcelona",
     "descripcion": "Estamos buscando un diseñador UX/UI con pasión por crear experiencias digitales excepcionales. Se requiere experiencia en Figma, diseño centrado en el usuario y colaboración con equipos de desarrollo.",
     "data": {
-      "technology": ["figma", "sketch", "adobe-xd", "prototyping"],
+      "technology": [
+        "figma",
+        "sketch",
+        "adobe-xd",
+        "prototyping"
+      ],
       "modalidad": "barcelona",
       "nivel": "mid-level"
     },
@@ -96,7 +122,12 @@
     "ubicacion": "Buenos Aires",
     "descripcion": "Se busca un administrador de bases de datos con experiencia en PostgreSQL y MySQL. El candidato deberá asegurar la disponibilidad, seguridad y rendimiento de las bases de datos de producción.",
     "data": {
-      "technology": ["postgresql", "mysql", "mongodb", "redis"],
+      "technology": [
+        "postgresql",
+        "mysql",
+        "mongodb",
+        "redis"
+      ],
       "modalidad": "bsas",
       "nivel": "mid-level"
     },
@@ -114,7 +145,12 @@
     "ubicacion": "Remoto",
     "descripcion": "Buscamos un especialista en ciberseguridad con conocimientos en protección de infraestructuras, análisis de vulnerabilidades y respuesta ante incidentes. Se valorará experiencia con SIEM y certificaciones de seguridad.",
     "data": {
-      "technology": ["siem", "penetration-testing", "firewall", "security-tools"],
+      "technology": [
+        "siem",
+        "penetration-testing",
+        "firewall",
+        "security-tools"
+      ],
       "modalidad": "remoto",
       "nivel": "mid-level"
     },
@@ -132,7 +168,13 @@
     "ubicacion": "Madrid",
     "descripcion": "Estamos buscando un Product Manager con experiencia en la definición y lanzamiento de productos digitales. Se requiere capacidad analítica, liderazgo y conocimiento en metodologías ágiles.",
     "data": {
-      "technology": ["agile", "scrum", "jira", "analytics", "product-strategy"],
+      "technology": [
+        "agile",
+        "scrum",
+        "jira",
+        "analytics",
+        "product-strategy"
+      ],
       "modalidad": "madrid",
       "nivel": "senior"
     },
@@ -150,7 +192,12 @@
     "ubicacion": "Valencia",
     "descripcion": "Buscamos un desarrollador frontend con experiencia en React, TypeScript y Tailwind CSS. Se valorará conocimiento en optimización de rendimiento y accesibilidad web.",
     "data": {
-      "technology": ["react", "typescript", "tailwind", "css"],
+      "technology": [
+        "react",
+        "typescript",
+        "tailwind",
+        "css"
+      ],
       "modalidad": "valencia",
       "nivel": "mid-level"
     },
@@ -168,7 +215,12 @@
     "ubicacion": "Bogotá",
     "descripcion": "Estamos buscando un desarrollador backend con experiencia en Node.js, Express y bases de datos NoSQL. Se requiere conocimiento en arquitectura de microservicios.",
     "data": {
-      "technology": ["node", "express", "mongodb", "microservices"],
+      "technology": [
+        "node",
+        "express",
+        "mongodb",
+        "microservices"
+      ],
       "modalidad": "bogota",
       "nivel": "mid"
     },
@@ -186,7 +238,13 @@
     "ubicacion": "Remoto",
     "descripcion": "Buscamos un ingeniero de machine learning con experiencia en modelos de predicción y procesamiento de datos. Se valorará conocimiento en TensorFlow, PyTorch y MLOps.",
     "data": {
-      "technology": ["python", "tensorflow", "pytorch", "scikit-learn", "mlops"],
+      "technology": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "scikit-learn",
+        "mlops"
+      ],
       "modalidad": "remoto",
       "nivel": "senior"
     },
@@ -204,7 +262,13 @@
     "ubicacion": "Lima",
     "descripcion": "Se busca ingeniero de QA con experiencia en automatización de pruebas utilizando herramientas como Selenium, Cypress o Playwright. Conocimiento deseado en CI/CD.",
     "data": {
-      "technology": ["selenium", "cypress", "playwright", "jest", "testing"],
+      "technology": [
+        "selenium",
+        "cypress",
+        "playwright",
+        "jest",
+        "testing"
+      ],
       "modalidad": "lima",
       "nivel": "mid-level"
     },
@@ -222,7 +286,13 @@
     "ubicacion": "Santiago de Chile",
     "descripcion": "Buscamos un administrador de sistemas con experiencia en Linux, Docker y monitoreo de servidores. Conocimiento en scripting Bash o Python será un plus.",
     "data": {
-      "technology": ["linux", "docker", "bash", "python", "monitoring"],
+      "technology": [
+        "linux",
+        "docker",
+        "bash",
+        "python",
+        "monitoring"
+      ],
       "modalidad": "santiago",
       "nivel": "mid-level"
     },
@@ -240,7 +310,13 @@
     "ubicacion": "Madrid",
     "descripcion": "Estamos buscando un Scrum Master con experiencia en metodologías ágiles y gestión de equipos multidisciplinarios. Certificación Scrum Master deseable.",
     "data": {
-      "technology": ["scrum", "agile", "jira", "confluence", "kanban"],
+      "technology": [
+        "scrum",
+        "agile",
+        "jira",
+        "confluence",
+        "kanban"
+      ],
       "modalidad": "madrid",
       "nivel": "mid-level"
     },
@@ -258,7 +334,12 @@
     "ubicacion": "Monterrey",
     "descripcion": "Buscamos un técnico de soporte con habilidades en resolución de incidencias, redes y sistemas operativos. Se requiere atención al detalle y excelente trato con el usuario.",
     "data": {
-      "technology": ["windows", "linux", "networking", "troubleshooting"],
+      "technology": [
+        "windows",
+        "linux",
+        "networking",
+        "troubleshooting"
+      ],
       "modalidad": "monterrey",
       "nivel": "junior"
     },
@@ -276,7 +357,13 @@
     "ubicacion": "Remoto",
     "descripcion": "Se busca desarrollador full stack con dominio de tecnologías frontend y backend. Experiencia con React, Node.js, PostgreSQL y Docker es esencial.",
     "data": {
-      "technology": ["react", "node", "postgresql", "docker", "typescript"],
+      "technology": [
+        "react",
+        "node",
+        "postgresql",
+        "docker",
+        "typescript"
+      ],
       "modalidad": "remoto",
       "nivel": "senior"
     },
@@ -294,7 +381,13 @@
     "ubicacion": "Ciudad de México",
     "descripcion": "Buscamos ingeniero de datos con experiencia en pipelines ETL, Apache Spark y arquitecturas de data lakes. Conocimientos en AWS o GCP requeridos.",
     "data": {
-      "technology": ["python", "spark", "aws", "sql", "airflow"],
+      "technology": [
+        "python",
+        "spark",
+        "aws",
+        "sql",
+        "airflow"
+      ],
       "modalidad": "cdmx",
       "nivel": "mid-level"
     },
@@ -312,7 +405,12 @@
     "ubicacion": "Guadalajara",
     "descripcion": "Desarrollador iOS con experiencia en Swift, SwiftUI y arquitectura MVVM. Se valorará portfolio de apps publicadas en App Store.",
     "data": {
-      "technology": ["swift", "swiftui", "ios", "xcode"],
+      "technology": [
+        "swift",
+        "swiftui",
+        "ios",
+        "xcode"
+      ],
       "modalidad": "guadalajara",
       "nivel": "mid-level"
     },
@@ -330,7 +428,13 @@
     "ubicacion": "Remoto",
     "descripcion": "Arquitecto cloud senior con expertise en diseño de soluciones escalables en AWS, Azure o GCP. Certificaciones cloud altamente valoradas.",
     "data": {
-      "technology": ["aws", "azure", "kubernetes", "terraform", "microservices"],
+      "technology": [
+        "aws",
+        "azure",
+        "kubernetes",
+        "terraform",
+        "microservices"
+      ],
       "modalidad": "remoto",
       "nivel": "senior"
     },
@@ -348,7 +452,12 @@
     "ubicacion": "Barcelona",
     "descripcion": "Investigador UX para realizar estudios de usuarios, análisis de usabilidad y pruebas A/B. Experiencia con metodologías cualitativas y cuantitativas.",
     "data": {
-      "technology": ["figma", "analytics", "user-research", "prototyping"],
+      "technology": [
+        "figma",
+        "analytics",
+        "user-research",
+        "prototyping"
+      ],
       "modalidad": "barcelona",
       "nivel": "mid-level"
     },
@@ -366,7 +475,12 @@
     "ubicacion": "Buenos Aires",
     "descripcion": "Administrador de bases de datos con expertise en Oracle, SQL Server y MongoDB. Responsable de optimización, backups y recuperación ante desastres.",
     "data": {
-      "technology": ["oracle", "sql-server", "mongodb", "postgresql"],
+      "technology": [
+        "oracle",
+        "sql-server",
+        "mongodb",
+        "postgresql"
+      ],
       "modalidad": "bsas",
       "nivel": "senior"
     },
@@ -384,7 +498,12 @@
     "ubicacion": "Remoto",
     "descripcion": "Especialista en pentesting para evaluar seguridad de aplicaciones web, móviles e infraestructura. Certificaciones OSCP o CEH deseables.",
     "data": {
-      "technology": ["kali-linux", "penetration-testing", "security-tools", "python"],
+      "technology": [
+        "kali-linux",
+        "penetration-testing",
+        "security-tools",
+        "python"
+      ],
       "modalidad": "remoto",
       "nivel": "mid-level"
     },
@@ -402,7 +521,13 @@
     "ubicacion": "Madrid",
     "descripcion": "Product Owner técnico con background en desarrollo de software. Experiencia gestionando backlog, escribiendo user stories y trabajando con equipos ágiles.",
     "data": {
-      "technology": ["agile", "scrum", "jira", "sql", "api"],
+      "technology": [
+        "agile",
+        "scrum",
+        "jira",
+        "sql",
+        "api"
+      ],
       "modalidad": "madrid",
       "nivel": "senior"
     },
@@ -420,7 +545,12 @@
     "ubicacion": "Valencia",
     "descripcion": "Desarrollador especializado en React Native para crear aplicaciones móviles multiplataforma. Experiencia con integración de APIs y publicación en stores.",
     "data": {
-      "technology": ["react-native", "javascript", "typescript", "redux"],
+      "technology": [
+        "react-native",
+        "javascript",
+        "typescript",
+        "redux"
+      ],
       "modalidad": "valencia",
       "nivel": "mid-level"
     },
@@ -438,7 +568,13 @@
     "ubicacion": "Bogotá",
     "descripcion": "Ingeniero backend especializado en Go para desarrollo de microservicios de alto rendimiento. Experiencia con gRPC, PostgreSQL y sistemas distribuidos.",
     "data": {
-      "technology": ["golang", "grpc", "postgresql", "redis", "kubernetes"],
+      "technology": [
+        "golang",
+        "grpc",
+        "postgresql",
+        "redis",
+        "kubernetes"
+      ],
       "modalidad": "bogota",
       "nivel": "senior"
     },
@@ -456,7 +592,13 @@
     "ubicacion": "Remoto",
     "descripcion": "Científico investigador en IA para desarrollar modelos de deep learning. PhD o Máster en IA/ML requerido. Publicaciones en conferencias valoradas.",
     "data": {
-      "technology": ["python", "tensorflow", "pytorch", "nlp", "computer-vision"],
+      "technology": [
+        "python",
+        "tensorflow",
+        "pytorch",
+        "nlp",
+        "computer-vision"
+      ],
       "modalidad": "remoto",
       "nivel": "senior"
     },
@@ -474,7 +616,12 @@
     "ubicacion": "Lima",
     "descripcion": "Tester manual para ejecutar planes de prueba, reportar bugs y validar funcionalidades. Experiencia con metodologías de testing y herramientas de gestión de casos.",
     "data": {
-      "technology": ["testing", "jira", "test-case-management", "sql"],
+      "technology": [
+        "testing",
+        "jira",
+        "test-case-management",
+        "sql"
+      ],
       "modalidad": "lima",
       "nivel": "junior"
     },
@@ -492,7 +639,13 @@
     "ubicacion": "Santiago de Chile",
     "descripcion": "SRE para garantizar disponibilidad y rendimiento de sistemas críticos. Experiencia con Kubernetes, monitoring, alerting y automatización.",
     "data": {
-      "technology": ["kubernetes", "prometheus", "grafana", "terraform", "python"],
+      "technology": [
+        "kubernetes",
+        "prometheus",
+        "grafana",
+        "terraform",
+        "python"
+      ],
       "modalidad": "santiago",
       "nivel": "senior"
     },
@@ -510,7 +663,13 @@
     "ubicacion": "Madrid",
     "descripcion": "Coach ágil para guiar equipos y organizaciones en transformación ágil. Experiencia con Scrum, Kanban, SAFe y facilitación de workshops.",
     "data": {
-      "technology": ["scrum", "kanban", "safe", "agile", "coaching"],
+      "technology": [
+        "scrum",
+        "kanban",
+        "safe",
+        "agile",
+        "coaching"
+      ],
       "modalidad": "madrid",
       "nivel": "senior"
     },
@@ -528,7 +687,12 @@
     "ubicacion": "Monterrey",
     "descripcion": "Especialista de soporte IT para atención de incidencias, mantenimiento de equipos y administración de usuarios. Conocimientos de Active Directory y Office 365.",
     "data": {
-      "technology": ["windows", "office365", "active-directory", "networking"],
+      "technology": [
+        "windows",
+        "office365",
+        "active-directory",
+        "networking"
+      ],
       "modalidad": "monterrey",
       "nivel": "junior"
     },
@@ -546,7 +710,13 @@
     "ubicacion": "Remoto",
     "descripcion": "Desarrollador blockchain para crear smart contracts y dApps. Experiencia con Solidity, Ethereum, Web3.js y frameworks como Hardhat o Truffle.",
     "data": {
-      "technology": ["solidity", "ethereum", "web3", "javascript", "blockchain"],
+      "technology": [
+        "solidity",
+        "ethereum",
+        "web3",
+        "javascript",
+        "blockchain"
+      ],
       "modalidad": "remoto",
       "nivel": "mid-level"
     },
@@ -564,7 +734,13 @@
     "ubicacion": "Ciudad de México",
     "descripcion": "Analista de BI para crear dashboards, reportes y análisis de datos de negocio. Experiencia con Power BI, Tableau y SQL requerida.",
     "data": {
-      "technology": ["powerbi", "tableau", "sql", "excel", "dax"],
+      "technology": [
+        "powerbi",
+        "tableau",
+        "sql",
+        "excel",
+        "dax"
+      ],
       "modalidad": "cdmx",
       "nivel": "mid-level"
     },
@@ -582,7 +758,12 @@
     "ubicacion": "Guadalajara",
     "descripcion": "Desarrollador Android nativo con experiencia en Kotlin, Jetpack Compose y arquitectura MVVM. Portfolio de apps publicadas es un plus.",
     "data": {
-      "technology": ["kotlin", "android", "jetpack-compose", "mvvm"],
+      "technology": [
+        "kotlin",
+        "android",
+        "jetpack-compose",
+        "mvvm"
+      ],
       "modalidad": "guadalajara",
       "nivel": "mid-level"
     },
@@ -600,7 +781,12 @@
     "ubicacion": "Remoto",
     "descripcion": "Redactor técnico para crear documentación de APIs, guías de usuario y tutoriales. Background técnico en desarrollo de software valorado.",
     "data": {
-      "technology": ["markdown", "git", "api-documentation", "technical-writing"],
+      "technology": [
+        "markdown",
+        "git",
+        "api-documentation",
+        "technical-writing"
+      ],
       "modalidad": "remoto",
       "nivel": "junior"
     },
