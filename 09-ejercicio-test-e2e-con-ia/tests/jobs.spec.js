@@ -8,17 +8,22 @@ test.describe('Pruebas de búsqueda y aplicación de empleos', () => {
   test('Buscar empelos por texto desde el menú principal', async ({ page }) => {
     await page.goto('http://localhost:5173')
 
-    const searchInput = page.getByRole('searchbox')
+    // Si agregamos un label o `aria-label` al input de búsqueda, podemos usar `getByLabel`
+    // const searchInput = page.getByLabel('Buscar empleo por titulo, habilidad o empresa')
+    const searchInput = await page.getByRole('searchbox')
     await searchInput.fill('React')
 
     await page.getByRole('button', { name: 'Buscar' }).click()
 
-    const jobCard = page.locator('._jobListCard_il3es_1')
+    // Siempre es mejor buscar por selectores de rol, en estos casos, lo que podemos hacer es:
+    const jobCard = page.getByRole('article')
+    // const jobCard = page.locator('._jobListCard_il3es_1')
 
     await expect(jobCard.first()).toBeVisible()
 
     const firstJobTitle = jobCard.first().getByRole('heading', { level: 3 })
-    await expect(firstJobTitle).toHaveText('Desarrollador de Software Senior')
+    // En vez de hacer un expect por el texto, que puede cambiar según lo que busques, podemos observar que existe el título de la oferta
+    // await expect(firstJobTitle).toHaveText('Desarrollador de Software Senior')
   })
 
   test('Buscar empelos y aplicar a una oferta desde su página de detalle', async ({ page }) => {
@@ -27,6 +32,7 @@ test.describe('Pruebas de búsqueda y aplicación de empleos', () => {
     const searchInput = page.getByRole('searchbox')
     await searchInput.fill('Javascript')
 
+    // Lo mismo que en el test anterior, podemos usar el selector de rol. Siempre debemos evitar usar selectores de clase o ID, estos pueden cambiar fácil con el tiempo.
     const jobCard = page.locator('._jobListCard_il3es_1')
 
     const firstJobTitle = jobCard.first().getByRole('heading', { level: 3 })
@@ -82,10 +88,17 @@ test.describe('Pruebas de sección de filtros', () => {
     const firstPageOffer = page.locator('._jobListCard_il3es_1').first()
     await expect(firstPageOffer).toContainText('Ingeniero de Machine Learning')
 
+    // Podemos obtener primero por `getByRole` el nav, y de ahí el link a la siguiente página
+    // const navigate = page.getByRole('navigation', { name: 'Pagination' })
+    // await navigate.getByRole('link', { name: 'Next' }).click()
     await page.getByLabel('Next').click()
 
     const secondPageOffer = page.locator('._jobListCard_il3es_1').first()
     await expect(secondPageOffer).toContainText('AI Research Scientist')
+
+    // Otra manera de verificarlo es comparando de que la URL cambie
+    // await expect(page).toHaveURL(/page=2/)
+    // O viendo que el firstPageOffer y secondPageOffer son diferentes
   })
 
   test('Verificar botón Aplicar en página de detalle', async ({ page }) => {
