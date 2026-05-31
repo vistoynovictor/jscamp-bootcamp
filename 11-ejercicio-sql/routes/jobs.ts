@@ -21,8 +21,8 @@ jobsRouter.get('/:id', JobController.getById)
 // POST /jobs - Crear un job (con validación)
 jobsRouter.post('/', validateCreateJob, JobController.create)
 
-// PATCH /jobs/:id - Actualizar parcialmente un job
-jobsRouter.patch('/:id', validateUpdateJob, JobController.update)
+// PUT /jobs/:id - Actualizar parcialmente un job
+jobsRouter.put('/:id', validateUpdateJob, JobController.update)
 
 // DELETE /jobs/:id - Eliminar un job
 jobsRouter.delete('/:id', JobController.delete)

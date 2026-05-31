@@ -16,10 +16,13 @@ export interface Job {
   content?: JobContent
 }
 
+type modality = 'remote' | 'onsite' | 'hybrid'
+type level = 'junior' | 'mid' | 'senior'
+
 export interface JobData {
   technology: string[]
-  modality: 'remote' | 'onsite' | 'hybrid'
-  level: 'junior' | 'mid' | 'senior'
+  modality: modality
+  level: level
 }
 
 export interface JobContent {
@@ -44,9 +47,12 @@ export type UpdateJobDTO = Partial<CreateJobDTO>
 // ================================
 
 export interface JobFilters {
-  tech?: string
-  modality?: JobData['modality']
-  level?: JobData['level']
+  technology?: string
+  modality?: modality
+  level?: level
+  location?: string
+  limit?: string
+  offset?: string
 }
 
 // ================================
@@ -57,3 +63,16 @@ export interface ApiError {
   message: string
   errors?: unknown[]
 }
+
+export interface RawJobRow {
+  id: string
+  title: string
+  company: string
+  location: string
+  description: string
+  technologies: string
+  modality: modality
+  level: level
+}
+
+export type dbOutput = RawJobRow | RawJobRow[]

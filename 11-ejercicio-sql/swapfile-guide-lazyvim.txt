@@ -1,0 +1,47 @@
+HOW TO HANDLE SWAP FILES IN LAZYVIM
+====================================
+
+1. DELETE A STALE SWAP FILE
+   -------------------------
+   Swap files are stored in ~/.local/state/nvim/swap/ with encoded names:
+
+     ~/.local/state/nvim/swap/%home%user%path%to%file.ts.swp
+     ~/.local/state/nvim/swap/%home%user%path%to%file.ts.swo  (2nd swap copy)
+
+   To delete them:
+     rm ~/.local/state/nvim/swap/%home%user%path%to%file.ts.sw*
+     rm ~/.local/state/nvim/swap/%home%user%path%to%file.ts.swo
+
+   The * glob catches both .swp and .swo variants.
+
+2. CHECK IF SWAP HAS UNSAVED DATA
+   -------------------------------
+   Recover the swap content and diff against the original:
+
+     nvim --headless -u NONE +"silent! recover src/file.ts" +"w! /tmp/recovered.ts" +"qa!"
+     diff src/file.ts /tmp/recovered.ts
+
+   If diff shows no output, the swap has no unsaved changes — safe to delete.
+
+3. DISABLE SWAPFILES ENTIRELY (OPTIONAL)
+   -------------------------------------
+   In ~/.config/nvim/lua/config/options.lua, add:
+
+     vim.opt.swapfile = false
+
+4. MOVE SWAPFILES TO A DIFFERENT DIR
+   ----------------------------------
+   In ~/.config/nvim/lua/config/options.lua, add:
+
+     vim.opt.swapfile = true
+     vim.opt.directory = vim.fn.stdpath("data") .. "/swap"
+     vim.fn.mkdir(vim.opt.directory:get(), "p")
+
+5. RECOVER UNSAVED CHANGES FROM A SWAP FILE
+   -----------------------------------------
+   Open neovim normally and it will prompt you to recover.
+   Or from terminal:
+
+     nvim -r src/file.ts
+
+   This opens the file with the swap content applied.
