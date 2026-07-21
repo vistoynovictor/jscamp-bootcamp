@@ -16,3 +16,12 @@ jobs:
 
       - name: Ver archivos disponibles
         run: ls -la
+
+  repo-files:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Descargar el código del repositorio
+        uses: actions/checkout@v7
+
+      - name: Ver archivos disponibles
+        run: ls -la
