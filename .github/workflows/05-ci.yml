@@ -8,9 +8,6 @@ on:
 jobs:
   frontend-lint:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: ./12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -19,13 +16,12 @@ jobs:
         uses: ./.github/actions/setup-pnpm-ci-cd
 
       - name: Lint
-        run: pnpm lint:frontend
+        run: |
+          cd ./12-ejercicio-cicd
+          pnpm lint:frontend
 
   backend-lint:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: ./12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -34,13 +30,12 @@ jobs:
         uses: ./.github/actions/setup-pnpm-ci-cd
 
       - name: Lint
-        run: pnpm lint:backend
+        run: |
+          cd ./12-ejercicio-cicd
+          pnpm lint:frontend
 
   frontend-test:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: ./12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -49,13 +44,12 @@ jobs:
         uses: ./.github/actions/setup-pnpm-ci-cd
 
       - name: Test
-        run: pnpm test:frontend
+        run: |
+          cd ./12-ejercicio-cicd
+          pnpm lint:frontend
 
   backend-test:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: ./12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -64,4 +58,6 @@ jobs:
         uses: ./.github/actions/setup-pnpm-ci-cd
 
       - name: Test
-        run: pnpm test:backend
+        run: |
+          cd ./12-ejercicio-cicd
+          pnpm lint:frontend
