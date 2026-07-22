@@ -1,0 +1,40 @@
+name: 05 - CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}/09-ci-cd
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: PNPM setup
+        uses: pnpm/action-setup@v6
+        with:
+          version: 10
+          run_install: false
+
+      - name: Instal dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test (build)
+        run: pnpm test:build
+
+      - name: Test (e2e)
+        run: pnpm test:e2e
