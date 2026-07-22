@@ -38,6 +38,9 @@ jobs:
 
   frontend-test:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
@@ -50,6 +53,9 @@ jobs:
 
   backend-test:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
