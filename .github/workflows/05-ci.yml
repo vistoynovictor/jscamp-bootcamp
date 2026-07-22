@@ -8,56 +8,68 @@ on:
 jobs:
   frontend-lint:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Setup pnpm and Node.js
         uses: ./.github/actions/setup-pnpm-ci-cd
+        with:
+          working-directory: 12-ejercicio-cicd
 
       - name: Lint
-        run: |
-          cd ./12-ejercicio-cicd
-          pnpm lint:frontend
+        run: pnpm lint:frontend
 
   backend-lint:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Setup pnpm and Node.js
         uses: ./.github/actions/setup-pnpm-ci-cd
+        with:
+          working-directory: 12-ejercicio-cicd
 
       - name: Lint
-        run: |
-          cd ./12-ejercicio-cicd
-          pnpm lint:frontend
+        run: pnpm lint:backend
 
   frontend-test:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Setup pnpm and Node.js
         uses: ./.github/actions/setup-pnpm-ci-cd
+        with:
+          working-directory: 12-ejercicio-cicd
 
       - name: Test
-        run: |
-          cd ./12-ejercicio-cicd
-          pnpm lint:frontend
+        run: pnpm test:frontend
 
   backend-test:
     runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
       - name: Setup pnpm and Node.js
         uses: ./.github/actions/setup-pnpm-ci-cd
+        with:
+          working-directory: 12-ejercicio-cicd
 
       - name: Test
-        run: |
-          cd ./12-ejercicio-cicd
-          pnpm lint:frontend
+        run: pnpm test:backend

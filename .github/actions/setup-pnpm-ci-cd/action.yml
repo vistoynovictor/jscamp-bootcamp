@@ -10,6 +10,9 @@ inputs:
     description: "PNPM version"
     required: false
     default: "11"
+  working-directory:
+    description: "Working directory for the action to operate on"
+    required: true
 
 runs:
   using: "composite"
@@ -27,4 +30,5 @@ runs:
 
     - name: Install dependencies
       shell: bash
+      working-directory: ${{ inputs.working-directory }}
       run: pnpm install --frozen-lockfile
