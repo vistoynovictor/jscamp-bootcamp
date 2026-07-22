@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     defaults:
       run:
-        working-directory: 09-ci-cd
+        working-directory: 12-ejercicio-cicd
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
