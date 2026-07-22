@@ -6,35 +6,44 @@ on:
     branches: [main]
 
 jobs:
-  ci:
+  frontend-lint:
     runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: 12-ejercicio-cicd
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-
-      - name: PNPM setup
-        uses: pnpm/action-setup@v6
-        with:
-          version: 10
-          run_install: false
-
-      - name: Instal dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Setup pnpm and Node.js
+        uses: ./.github/actions/setup-pnpm-ci-cd@main
 
       - name: Lint
-        run: pnpm lint
+        run: pnpm lint:frontend
+
+  backend-lint:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
+    steps:
+      - name: Setup pnpm and Node.js
+        uses: ./.github/actions/setup-pnpm-ci-cd@main
+
+      - name: Lint
+        run: pnpm lint:backend
+
+  frontend-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup pnpm and Node.js
+        uses: ./.github/actions/setup-pnpm-ci-cd@main
 
       - name: Test
-        run: pnpm test
+        run: pnpm test:frontend
 
-      - name: Build
-        run: pnpm build
+  backend-test:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup pnpm and Node.js
+        uses: ./.github/actions/setup-pnpm-ci-cd@main
 
-      - name: Test (build)
-        run: pnpm test:build
-
-      - name: Test (e2e)
-        run: pnpm test:e2e
+      - name: Test
+        run: pnpm test:backend
