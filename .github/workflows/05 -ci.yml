@@ -13,8 +13,7 @@ jobs:
         working-directory: 12-ejercicio-cicd
     steps:
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-ci-cd@main
-
+        uses: ./.github/actions/setup-pnpm-ci-cd
       - name: Lint
         run: pnpm lint:frontend
 
@@ -25,8 +24,7 @@ jobs:
         working-directory: 12-ejercicio-cicd
     steps:
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-ci-cd@main
-
+        uses: ./.github/actions/setup-pnpm-ci-cd
       - name: Lint
         run: pnpm lint:backend
 
@@ -34,8 +32,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-ci-cd@main
-
+        uses: ./.github/actions/setup-pnpm-ci-cd
       - name: Test
         run: pnpm test:frontend
 
@@ -43,7 +40,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-ci-cd@main
-
+        uses: ./.github/actions/setup-pnpm-ci-cd
       - name: Test
         run: pnpm test:backend
