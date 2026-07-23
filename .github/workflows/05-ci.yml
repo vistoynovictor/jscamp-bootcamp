@@ -23,23 +23,6 @@ jobs:
       - name: Lint
         run: pnpm lint:frontend
 
-  backend-lint:
-    runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: 12-ejercicio-cicd
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-
-      - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-ci-cd
-        with:
-          working-directory: 12-ejercicio-cicd
-
-      - name: Lint
-        run: pnpm lint:backend
-
   frontend-test:
     runs-on: ubuntu-24.04
     defaults:
@@ -57,6 +40,36 @@ jobs:
       - name: Test
         run: pnpm test:frontend
 
+  frontend-build:
+    needs: [frontend-lint, frontend-test]
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
+    steps:
+      - name: Checkout code
+        uses: ./.github/actions/setup-pnpm-ci-cd
+
+      - name: Build
+        run: pnpm build:frontend
+
+  backend-lint:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup pnpm and Node.js
+        uses: ./.github/actions/setup-pnpm-ci-cd
+        with:
+          working-directory: 12-ejercicio-cicd
+
+      - name: Lint
+        run: pnpm lint:backend
+
   backend-test:
     runs-on: ubuntu-24.04
     defaults:
@@ -73,3 +86,34 @@ jobs:
 
       - name: Test
         run: pnpm test:backend
+
+  backend-build:
+    needs: [backend-lint, backend-test]
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
+    steps:
+      - name: Checkout code
+        uses: ./.github/actions/setup-pnpm-ci-cd
+
+      - name: Build
+        run: pnpm build:backend
+
+  backend-smoke-test:
+    needs: [backend-lint, backend-test]
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: 12-ejercicio-cicd
+    steps:
+      - name: Checkout code
+        uses: ./.github/actions/setup-pnpm-ci-cd
+
+      - name: Build
+        run: |
+          echo "::group::Smoke test 🚬"
+          pnpm build:backend
+          pnpm start:backend
+          curl -X GET http://localhost:3000/health
+          echo "::endgroup::"
