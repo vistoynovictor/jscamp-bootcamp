@@ -27,6 +27,14 @@ jobs:
       pull-requests: read
       issues: read
     steps:
+      - name: Check credentials
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: |
+          if [[ -z "$OPENCODE_API_KEY" ]]; then
+            echo "::warning::No se ha encontrado la API Key para Opencode. Se omitirá responder a Issues o Comentarios"
+            exit 0
+          fi
       - name: Checkout repository
         uses: actions/checkout@v7
         with:
