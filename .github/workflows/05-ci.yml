@@ -45,7 +45,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Test ${{ matrix.os }}
-        uses: ./.github/actions/frontend-test-matrix
+        run: pnpm test:frontend
 
   frontend-build:
     needs: [frontend-lint, frontend-test]
