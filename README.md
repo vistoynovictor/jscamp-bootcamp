@@ -19,3 +19,5 @@ En este repositorio podrás ir entregando los ejercicios del bootcamp
 | 9   | **test-e2e-con-ia** | Tests E2E con Playwright (y opcional IA) | [![GitHub Badge](https://img.shields.io/badge/estado-completado-green)](/09-ejercicio-test-e2e-con-ia/tree/main/README.md) |
 | 10  | **typescript** | Sistema de empleos tipado con TypeScript | [![GitHub Badge](https://img.shields.io/badge/estado-completado-green)](/10-ejercicio-typescript/tree/main/README.md) |
 | 11  | **sql** | Migración del modelo a SQLite con SQL | [![GitHub Badge](https://img.shields.io/badge/estado-completado-green)](/11-ejercicio-sql/tree/main/README.md) |
+| 12  | **cicd** | Pipeline de CI/CD con GitHub Actions | [![GitHub Badge](https://img.shields.io/badge/estado-completado-green)](/12-ejercicio-cicd/tree/main/README.md) |
+| 13  | **docker** | Docker de principio a fin | [![GitHub Badge](https://img.shields.io/badge/estado-completado-green)](/13-ejercicio-docker/tree/main/README.md) |
